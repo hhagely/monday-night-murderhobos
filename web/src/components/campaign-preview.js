@@ -1,24 +1,19 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { cn, buildImageObj } from '../lib/helpers';
-import { imageUrlFor } from '../lib/image-url';
+import { cn } from '../lib/helpers';
 import BlockText from './block-text';
+import Img from 'gatsby-image';
 
-import styles from './project-preview.module.css';
+import styles from './campaign-preview.module.css';
 import { responsiveTitle3 } from './typography.module.css';
 
-function ProjectPreview(props) {
+function CampaignPreview(props) {
+  console.log('campaign preview props: ', props);
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
+    <Link className={styles.root} to={`/campaign/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .url()}
-            alt={props.mainImage.alt}
-          />
+          <Img fluid={props.mainImage.asset.fluid} />
         )}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
@@ -31,4 +26,4 @@ function ProjectPreview(props) {
   );
 }
 
-export default ProjectPreview;
+export default CampaignPreview;

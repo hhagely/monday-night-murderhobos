@@ -1,8 +1,8 @@
 {
   "private": false,
-  "name": "example-company-website-gatsby-sanity-combo",
+  "name": "monday-night-murderhobos",
   "version": "1.0.0",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "Herb Hagely",
   "scripts": {
     "clean": "lerna clean",
     "deploy": "lerna run deploy",
@@ -20,5 +20,6 @@
   "devDependencies": {
     "lerna": "^3.9.0",
     "rimraf": "^2.6.3"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,12 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { mapEdgesToNodes } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { mapEdgesToNodes } from '../lib/helpers';
+import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
+import Container from '../components/container';
+import GraphQLErrorList from '../components/graphql-error-list';
+import ProjectPreviewGrid from '../components/project-preview-grid';
+import CampaignPreviewGrid from '../components/campaign-preview-grid';
+import SEO from '../components/seo';
+import Layout from '../containers/layout';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -14,6 +15,32 @@ export const query = graphql`
       title
       description
       keywords
+    }
+
+    campaigns: allSanityCampaign(
+      limit: 6
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } } }
+    ) {
+      edges {
+        node {
+          id
+          publishedAt
+          mainImage {
+            asset {
+              id
+              fluid(maxWidth: 700) {
+                ...GatsbySanityImageFluid
+              }
+            }
+            alt
+          }
+          title
+          slug {
+            current
+          }
+        }
+      }
     }
 
     projects: allSanityProject(
@@ -95,51 +122,67 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-const IndexPage = props => {
-  const { data, errors } = props
+const IndexPage = (props) => {
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const site = (data || {}).site
-  const postNodes = (data || {}).posts ? mapEdgesToNodes(data.posts) : []
-  const projectNodes = (data || {}).projects ? mapEdgesToNodes(data.projects) : []
+  const site = (data || {}).site;
+  const postNodes = (data || {}).posts ? mapEdgesToNodes(data.posts) : [];
+  const campaignNodes = (data || {}).campaigns
+    ? mapEdgesToNodes(data.campaigns)
+    : [];
+  const projectNodes = (data || {}).projects
+    ? mapEdgesToNodes(data.projects)
+    : [];
 
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Company settings" and restart the development server.'
-    )
+    );
   }
 
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <SEO
+        title={site.title}
+        description={site.description}
+        keywords={site.keywords}
+      />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        {campaignNodes && (
+          <CampaignPreviewGrid
+            title="Latest campaigns"
+            nodes={campaignNodes}
+            browseMoreHref="/campaigns/"
+          />
+        )}
         {projectNodes && (
           <ProjectPreviewGrid
-            title='Latest projects'
+            title="Latest projects"
             nodes={projectNodes}
-            browseMoreHref='/projects/'
+            browseMoreHref="/projects/"
           />
         )}
         {postNodes && (
           <BlogPostPreviewGrid
-            title='Latest blog posts'
+            title="Latest blog posts"
             nodes={postNodes}
-            browseMoreHref='/blog/'
+            browseMoreHref="/blog/"
           />
         )}
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

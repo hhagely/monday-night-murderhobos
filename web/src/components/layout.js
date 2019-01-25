@@ -1,8 +1,8 @@
-import React from 'react'
-import Header from './header'
+import React from 'react';
+import Header from './header';
 
-import '../styles/layout.css'
-import styles from './layout.module.css'
+import '../styles/layout.css';
+import styles from './layout.module.css';
 
 const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
@@ -10,7 +10,7 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
-        <div className={styles.companyAddress}>
+        {/* <div className={styles.companyAddress}>
           {companyInfo && (
             <div>
               {companyInfo.name}
@@ -27,16 +27,16 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
               {companyInfo.country && <span>, {companyInfo.country}</span>}
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className={styles.siteInfo}>
-          © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
+          © {new Date().getFullYear()}, Built with <a href="https://www.sanity.io">Sanity</a> &amp;
           {` `}
-          <a href='https://www.gatsbyjs.org'>Gatsby</a>
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
         </div>
       </div>
     </footer>
   </>
-)
+);
 
-export default Layout
+export default Layout;
