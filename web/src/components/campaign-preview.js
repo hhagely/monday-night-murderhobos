@@ -13,7 +13,7 @@ function CampaignPreview(props) {
     <Link className={styles.root} to={`/campaign/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
         {props.mainImage && props.mainImage.asset && (
-          <Img fluid={props.mainImage.asset.fluid} />
+          <Img fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
         )}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>

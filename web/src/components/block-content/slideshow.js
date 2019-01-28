@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import { buildImageObj } from '../../lib/helpers'
-import { imageUrlFor } from '../../lib/image-url'
+import React, { useState } from 'react';
+import { buildImageObj } from '../../lib/helpers';
+import { imageUrlFor } from '../../lib/image-url';
 
-import styles from './slideshow.module.css'
+import styles from './slideshow.module.css';
 
-function Slideshow (props) {
-  console.log(props)
-  if (!props.slides) return null
-  const len = props.slides.length
-  const [index, setIndex] = useState(0)
-  function handlePrev () {
-    setIndex(Math.max(index - 1, 0))
+function Slideshow(props) {
+  console.log('slideshow props: ', props);
+  if (!props.slides) return null;
+  const len = props.slides.length;
+  const [index, setIndex] = useState(0);
+  function handlePrev() {
+    setIndex(Math.max(index - 1, 0));
   }
-  function handleNext () {
-    setIndex(Math.min(index + 1, len - 1))
+  function handleNext() {
+    setIndex(Math.min(index + 1, len - 1));
   }
   return (
     <div className={styles.root}>
@@ -33,7 +33,7 @@ function Slideshow (props) {
         data-index={index}
         style={{ transform: `translate3d(${index * -100}%, 0, 0)` }}
       >
-        {props.slides.map(slide => (
+        {props.slides.map((slide) => (
           <li key={slide._key} className={styles.slide}>
             {slide.asset && (
               <img
@@ -48,7 +48,7 @@ function Slideshow (props) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default Slideshow
+export default Slideshow;

@@ -11,7 +11,9 @@ const hiddenTypes = [
   'post',
   'project',
   'siteSettings',
-  'campaign'
+  'campaign',
+  'session',
+  'partyMember'
 ];
 
 export default () =>
@@ -44,6 +46,10 @@ export default () =>
         .title('Campaigns')
         .schemaType('campaign')
         .child(S.documentTypeList('campaign')),
+      S.listItem()
+        .title('Sessions')
+        .schemaType('session')
+        .child(S.documentTypeList('session')),
       S.listItem()
         .title('Blog posts')
         .schemaType('post')
@@ -78,6 +84,10 @@ export default () =>
         .title('People')
         .schemaType('person')
         .child(S.documentTypeList('person').title('People')),
+      S.listItem()
+        .title('Party Members')
+        .schemaType('partyMember')
+        .child(S.documentTypeList('person').title('Party Member')),
       S.listItem()
         .title('Categories')
         .schemaType('category')

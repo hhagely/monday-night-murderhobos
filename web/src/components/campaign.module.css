@@ -11,12 +11,12 @@
 .mainImage {
   position: relative;
   background: #eee;
-  display: flex;
-  justify-content: center;
-  /* padding-bottom: calc(9 / 16 * 100%); */
+  /* display: flex;
+  justify-content: center; */
+  padding-bottom: calc(9 / 16 * 100%);
 
   @nest & img {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

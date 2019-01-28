@@ -12,35 +12,37 @@ export const query = graphql`
       id
       publishedAt
       mainImage {
-        # crop {
-        #   _key
-        #   _type
-        #   top
-        #   bottom
-        #   left
-        #   right
-        # }
-        # hotspot {
-        #   _key
-        #   _type
-        #   x
-        #   y
-        #   height
-        #   width
-        # }
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
         asset {
-          id
-          fixed(width: 700) {
-            ...GatsbySanityImageFixed
+          _id
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
           }
+          # fixed(width: 700) {
+          #   ...GatsbySanityImageFixed
+          # }
         }
       }
       title
       slug {
         current
       }
-      # body
-      # _rawBody
+      _rawBody
     }
   }
 `;

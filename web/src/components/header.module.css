@@ -4,6 +4,8 @@
 .root {
   position: relative;
   z-index: 100;
+  background: #19216c;
+  color: #f5f7fa;
 }
 
 .wrapper {
@@ -46,7 +48,7 @@
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
 
-  & svg {
+  @nest & svg {
     display: block;
   }
 

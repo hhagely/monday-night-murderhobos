@@ -4,10 +4,12 @@ import { mapEdgesToNodes } from '../lib/helpers';
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import ProjectPreviewGrid from '../components/project-preview-grid';
+// import ProjectPreviewGrid from '../components/project-preview-grid';
 import CampaignPreviewGrid from '../components/campaign-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
+
+const imgHeight = (9 / 16) * 600;
 
 export const query = graphql`
   query IndexPageQuery {
@@ -29,12 +31,13 @@ export const query = graphql`
           mainImage {
             asset {
               id
-              fluid(maxWidth: 700) {
+              fluid(maxWidth: 600) {
                 ...GatsbySanityImageFluid
               }
             }
             alt
           }
+          _rawExcerpt
           title
           slug {
             current
@@ -43,44 +46,44 @@ export const query = graphql`
       }
     }
 
-    projects: allSanityProject(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } } }
-    ) {
-      edges {
-        node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+    # projects: allSanityProject(
+    #   limit: 6
+    #   sort: { fields: [publishedAt], order: DESC }
+    #   filter: { slug: { current: { ne: null } } }
+    # ) {
+    #   edges {
+    #     node {
+    #       id
+    #       mainImage {
+    #         crop {
+    #           _key
+    #           _type
+    #           top
+    #           bottom
+    #           left
+    #           right
+    #         }
+    #         hotspot {
+    #           _key
+    #           _type
+    #           x
+    #           y
+    #           height
+    #           width
+    #         }
+    #         asset {
+    #           _id
+    #         }
+    #         alt
+    #       }
+    #       title
+    #       _rawExcerpt
+    #       slug {
+    #         current
+    #       }
+    #     }
+    #   }
+    # }
 
     posts: allSanityPost(
       limit: 6
@@ -140,9 +143,9 @@ const IndexPage = (props) => {
   const campaignNodes = (data || {}).campaigns
     ? mapEdgesToNodes(data.campaigns)
     : [];
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-    : [];
+  // const projectNodes = (data || {}).projects
+  //   ? mapEdgesToNodes(data.projects)
+  //   : [];
 
   if (!site) {
     throw new Error(
@@ -166,13 +169,13 @@ const IndexPage = (props) => {
             browseMoreHref="/campaigns/"
           />
         )}
-        {projectNodes && (
+        {/* {projectNodes && (
           <ProjectPreviewGrid
             title="Latest projects"
             nodes={projectNodes}
             browseMoreHref="/projects/"
           />
-        )}
+        )} */}
         {postNodes && (
           <BlogPostPreviewGrid
             title="Latest blog posts"

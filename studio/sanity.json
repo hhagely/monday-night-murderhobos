@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Gatsby Demo"
+    "name": "Monday Night Murderhobos"
   },
   "plugins": [
     "@sanity/base",
