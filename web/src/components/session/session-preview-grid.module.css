@@ -1,5 +1,5 @@
-@import '../styles/media-queries.css';
-@import '../styles/vars.css';
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
 
 .root {
   margin: 2em 0 4em;
@@ -35,7 +35,7 @@
 }
 
 .browseMoreNav {
-  composes: small from './typography.module.css';
+  composes: small from '../typography.module.css';
   margin-top: 1rem;
   text-align: right;
 

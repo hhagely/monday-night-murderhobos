@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { mapEdgesToNodes } from '../lib/helpers';
-import BlogPostPreviewGrid from '../components/blog-post/blog-post-preview-grid';
+import SessionPreviewGrid from '../components/session/session-preview-grid';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
@@ -10,8 +10,8 @@ import Layout from '../containers/layout';
 import { responsiveTitle1 } from '../components/typography.module.css';
 
 export const query = graphql`
-  query BlogPageQuery {
-    posts: allSanityPost(
+  query SessionPageQuery {
+    sessions: allSanitySession(
       limit: 12
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } } }
@@ -37,7 +37,7 @@ export const query = graphql`
   }
 `;
 
-const BlogPage = (props) => {
+const SessionPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -48,19 +48,19 @@ const BlogPage = (props) => {
     );
   }
 
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
+  const sessionNodes = data && data.sessions && mapEdgesToNodes(data.sessions);
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title="Sessions" />
       <Container>
-        <h1 className={responsiveTitle1}>Blog</h1>
-        {postNodes && postNodes.length > 0 && (
-          <BlogPostPreviewGrid nodes={postNodes} />
+        <h1 className={responsiveTitle1}>Sessions</h1>
+        {sessionNodes && sessionNodes.length > 0 && (
+          <SessionPreviewGrid nodes={sessionNodes} />
         )}
       </Container>
     </Layout>
   );
 };
 
-export default BlogPage;
+export default SessionPage;

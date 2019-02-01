@@ -1,20 +1,40 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import BlockContent from '../components/block-content'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
-import { mapEdgesToNodes } from '../lib/helpers'
+import React from 'react';
+import { graphql } from 'gatsby';
+import BlockContent from '../components/block-content';
+import Container from '../components/container';
+import GraphQLErrorList from '../components/graphql-error-list';
+import PeopleGrid from '../components/people-grid';
+import PartyMemberGrid from '../components/party-member-grid';
+import SEO from '../components/seo';
+import Layout from '../containers/layout';
+import { mapEdgesToNodes } from '../lib/helpers';
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle1 } from '../components/typography.module.css';
 
 export const query = graphql`
   query AboutPageQuery {
     page: sanityPage(_id: { eq: "about" }) {
       title
       _rawBody
+    }
+    partyMembers: allSanityPartyMember {
+      edges {
+        node {
+          id
+          characterName
+          class
+          race
+          person {
+            name
+            id
+            image {
+              asset {
+                _id
+              }
+            }
+          }
+        }
+      }
     }
     people: allSanityPerson {
       edges {
@@ -31,26 +51,28 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-const AboutPage = props => {
-  const { data, errors } = props
+const AboutPage = (props) => {
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const page = data && data.page
-  const personNodes = data && data.people && mapEdgesToNodes(data.people)
+  const page = data && data.page;
+  const partyMemberNodes =
+    data && data.partyMembers && mapEdgesToNodes(data.partyMembers);
+  // const personNodes = data && data.people && mapEdgesToNodes(data.people);
 
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data'
-    )
+    );
   }
 
   return (
@@ -59,10 +81,13 @@ const AboutPage = props => {
       <Container>
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
+        {partyMemberNodes && partyMemberNodes.length > 0 && (
+          // <PeopleGrid items={personNodes} title="People" />
+          <PartyMemberGrid partyMembers={partyMemberNodes} />
+        )}
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;

@@ -47,6 +47,12 @@ export default {
       title: 'Body',
       type: 'blockContent'
     }
+    // {
+    //   name: 'sessions',
+    //   title: 'Sessions',
+    //   type: 'array',
+    //   of: [{ type: 'reference', to: { type: 'session' } }]
+    // }
   ],
   preview: {
     select: {

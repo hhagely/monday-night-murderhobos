@@ -1,11 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { mapEdgesToNodes } from '../lib/helpers';
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid';
+import SessionPreviewGrid from '../components/session/session-preview-grid';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-// import ProjectPreviewGrid from '../components/project-preview-grid';
-import CampaignPreviewGrid from '../components/campaign-preview-grid';
+import CampaignPreviewGrid from '../components/campaign/campaign-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 
@@ -46,46 +45,7 @@ export const query = graphql`
       }
     }
 
-    # projects: allSanityProject(
-    #   limit: 6
-    #   sort: { fields: [publishedAt], order: DESC }
-    #   filter: { slug: { current: { ne: null } } }
-    # ) {
-    #   edges {
-    #     node {
-    #       id
-    #       mainImage {
-    #         crop {
-    #           _key
-    #           _type
-    #           top
-    #           bottom
-    #           left
-    #           right
-    #         }
-    #         hotspot {
-    #           _key
-    #           _type
-    #           x
-    #           y
-    #           height
-    #           width
-    #         }
-    #         asset {
-    #           _id
-    #         }
-    #         alt
-    #       }
-    #       title
-    #       _rawExcerpt
-    #       slug {
-    #         current
-    #       }
-    #     }
-    #   }
-    # }
-
-    posts: allSanityPost(
+    sessions: allSanitySession(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } } }
@@ -139,13 +99,12 @@ const IndexPage = (props) => {
   }
 
   const site = (data || {}).site;
-  const postNodes = (data || {}).posts ? mapEdgesToNodes(data.posts) : [];
+  const sessionNodes = (data || {}).sessions
+    ? mapEdgesToNodes(data.sessions)
+    : [];
   const campaignNodes = (data || {}).campaigns
     ? mapEdgesToNodes(data.campaigns)
     : [];
-  // const projectNodes = (data || {}).projects
-  //   ? mapEdgesToNodes(data.projects)
-  //   : [];
 
   if (!site) {
     throw new Error(
@@ -169,18 +128,11 @@ const IndexPage = (props) => {
             browseMoreHref="/campaigns/"
           />
         )}
-        {/* {projectNodes && (
-          <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/projects/"
-          />
-        )} */}
-        {postNodes && (
-          <BlogPostPreviewGrid
-            title="Latest blog posts"
-            nodes={postNodes}
-            browseMoreHref="/blog/"
+        {sessionNodes && (
+          <SessionPreviewGrid
+            title="Latest sessions"
+            nodes={sessionNodes}
+            browseMoreHref="/sessions/"
           />
         )}
       </Container>

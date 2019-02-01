@@ -1,21 +1,25 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
-// import { Link } from 'gatsby';
-import { buildImageObj } from '../lib/helpers';
-import { imageUrlFor } from '../lib/image-url';
-// import Img from 'gatsby-image';
-import BlockContent from './block-content';
-import Container from './container';
-// import RoleList from './role-list';
+import { buildImageObj } from '../../lib/helpers';
+import { imageUrlFor } from '../../lib/image-url';
+import BlockContent from '../block-content';
+import Container from '../container';
+import RoleList from '../role-list';
 
-import styles from './campaign.module.css';
+import styles from './blog-post.module.css';
 
-function Campaign(props) {
-  const { _rawBody, title, categories, mainImage, publishedAt } = props;
-  console.log(props);
+function BlogPost(props) {
+  const {
+    _rawBody,
+    authors,
+    categories,
+    title,
+    mainImage,
+    publishedAt
+  } = props;
   return (
     <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
+      {mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -25,14 +29,13 @@ function Campaign(props) {
               .url()}
             alt={mainImage.alt}
           />
-          {/* <Img fluid={mainImage.asset.fluid} alt={mainImage} /> */}
         </div>
       )}
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            {_rawBody && <BlockContent blocks={_rawBody} />}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (
@@ -42,7 +45,7 @@ function Campaign(props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {/* {members && <RoleList items={members} title="Authors" />} */}
+            {authors && <RoleList items={authors} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
@@ -53,22 +56,6 @@ function Campaign(props) {
                 </ul>
               </div>
             )}
-            {/* {relatedProjects && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>
-                  Related projects
-                </h3>
-                <ul>
-                  {relatedProjects.map((project) => (
-                    <li key={`related_${project._id}`}>
-                      <Link to={`/campaign/${project.slug.current}`}>
-                        {project.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
           </aside>
         </div>
       </Container>
@@ -76,4 +63,4 @@ function Campaign(props) {
   );
 }
 
-export default Campaign;
+export default BlogPost;

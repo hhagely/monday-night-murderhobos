@@ -31,11 +31,19 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
             <Link to="/campaigns">Campaigns</Link>
           </li>
           <li>
-            <Link to="/blog/">Blog</Link>
+            <Link to="/sessions/">Sessions</Link>
           </li>
           <li>
-            <Link to="/contact/">Contact</Link>
+            <a
+              target="_blank"
+              href="https://mnmh.fandom.com/wiki/Monday_Night_MurderHobos_Wiki"
+            >
+              Wiki
+            </a>
           </li>
+          {/* <li>
+            <Link to="/contact/">Contact</Link>
+          </li> */}
         </ul>
       </nav>
     </div>

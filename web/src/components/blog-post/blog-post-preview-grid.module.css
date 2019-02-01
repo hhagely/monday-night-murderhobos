@@ -1,8 +1,8 @@
-@import '../styles/media-queries.css';
-@import '../styles/vars.css';
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
 
 .root {
-  margin: 2rem 0 4rem;
+  margin: 2em 0 4em;
 }
 
 .headline {
@@ -22,8 +22,8 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
 
   @media (--media-min-small) {
     grid-template-columns: 1fr 1fr;
@@ -35,7 +35,7 @@
 }
 
 .browseMoreNav {
-  composes: small from './typography.module.css';
+  composes: small from '../typography.module.css';
   margin-top: 1rem;
   text-align: right;
 

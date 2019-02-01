@@ -87,7 +87,7 @@ export default () =>
       S.listItem()
         .title('Party Members')
         .schemaType('partyMember')
-        .child(S.documentTypeList('person').title('Party Member')),
+        .child(S.documentTypeList('partyMember').title('Party Member')),
       S.listItem()
         .title('Categories')
         .schemaType('category')

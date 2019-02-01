@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { cn } from '../lib/helpers';
-import BlockText from './block-text';
+import { cn } from '../../lib/helpers';
+import BlockText from '../block-text';
 import Img from 'gatsby-image';
 
 import styles from './campaign-preview.module.css';
-import { responsiveTitle3 } from './typography.module.css';
+import { responsiveTitle3 } from '../typography.module.css';
 
 function CampaignPreview(props) {
   console.log('campaign preview props: ', props);

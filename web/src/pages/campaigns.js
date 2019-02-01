@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import CampaignPreviewGrid from '../components/campaign-preview-grid';
+import CampaignPreviewGrid from '../components/campaign/campaign-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 import { mapEdgesToNodes } from '../lib/helpers';

@@ -2,13 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import BlogPost from '../components/blog-post/blog-post';
+import Session from '../components/session/session';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
-    post: sanityPost(id: { eq: $id }) {
+  query SessionTemplateQuery($id: String!) {
+    post: sanitySession(id: { eq: $id }) {
       id
       publishedAt
       categories {
@@ -74,7 +74,7 @@ export const query = graphql`
   }
 `;
 
-const BlogPostTemplate = (props) => {
+const SessionTemplate = (props) => {
   const { data, errors } = props;
   const post = data && data.post;
   return (
@@ -88,9 +88,9 @@ const BlogPostTemplate = (props) => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {post && <Session {...post} />}
     </Layout>
   );
 };
 
-export default BlogPostTemplate;
+export default SessionTemplate;

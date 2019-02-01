@@ -7,7 +7,22 @@ export default {
   icon: MdPerson,
   fields: [
     {
-      title: 'Person',
+      title: 'Character name',
+      name: 'characterName',
+      type: 'string'
+    },
+    {
+      title: 'Class',
+      name: 'class',
+      type: 'string'
+    },
+    {
+      title: 'Race',
+      name: 'race',
+      type: 'string'
+    },
+    {
+      title: 'Player',
       name: 'person',
       type: 'reference',
       to: { type: 'person' }
