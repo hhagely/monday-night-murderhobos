@@ -8,7 +8,7 @@ import Layout from '../containers/layout';
 
 export const query = graphql`
   query SessionTemplateQuery($id: String!) {
-    post: sanitySession(id: { eq: $id }) {
+    session: sanitySession(id: { eq: $id }) {
       id
       publishedAt
       categories {
@@ -76,11 +76,12 @@ export const query = graphql`
 
 const SessionTemplate = (props) => {
   const { data, errors } = props;
-  const post = data && data.post;
+  const session = data && data.session;
+  console.log(session.id);
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
-      {post && <SEO title={post.title || 'Untitled'} />}
+      {session && <SEO title={session.title || 'Untitled'} />}
 
       {errors && (
         <Container>
@@ -88,7 +89,7 @@ const SessionTemplate = (props) => {
         </Container>
       )}
 
-      {post && <Session {...post} />}
+      {session && <Session {...session} />}
     </Layout>
   );
 };

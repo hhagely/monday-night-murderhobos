@@ -37,7 +37,7 @@ export default {
       name: 'partyMembers',
       title: 'Party Members',
       type: 'array',
-      of: [{ type: 'partyMember' }]
+      of: [{ type: 'reference', to: { type: 'partyMember' } }]
     },
     {
       name: 'mainImage',

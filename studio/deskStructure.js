@@ -29,19 +29,19 @@ export default () =>
             .documentId('siteSettings')
         )
         .icon(MdSettings),
-      S.listItem()
-        .title('Company Info')
-        .child(
-          S.editor()
-            .id('companyInfo')
-            .schemaType('companyInfo')
-            .documentId('companyInfo')
-        )
-        .icon(MdBusiness),
-      S.listItem()
-        .title('Projects')
-        .schemaType('project')
-        .child(S.documentTypeList('project')),
+      // S.listItem()
+      //   .title('Company Info')
+      //   .child(
+      //     S.editor()
+      //       .id('companyInfo')
+      //       .schemaType('companyInfo')
+      //       .documentId('companyInfo')
+      //   )
+      //   .icon(MdBusiness),
+      // S.listItem()
+      //   .title('Projects')
+      //   .schemaType('project')
+      //   .child(S.documentTypeList('project')),
       S.listItem()
         .title('Campaigns')
         .schemaType('campaign')
@@ -50,10 +50,10 @@ export default () =>
         .title('Sessions')
         .schemaType('session')
         .child(S.documentTypeList('session')),
-      S.listItem()
-        .title('Blog posts')
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+      // S.listItem()
+      //   .title('Blog posts')
+      //   .schemaType('post')
+      //   .child(S.documentTypeList('post').title('Blog posts')),
       S.listItem()
         .title('Pages')
         .child(
@@ -68,16 +68,16 @@ export default () =>
                     .schemaType('page')
                     .documentId('about')
                 )
-                .icon(FaFileO),
-              S.listItem()
-                .title('Contact')
-                .child(
-                  S.editor()
-                    .id('contactPage')
-                    .schemaType('page')
-                    .documentId('contact')
-                )
                 .icon(FaFileO)
+              // S.listItem()
+              //   .title('Contact')
+              //   .child(
+              //     S.editor()
+              //       .id('contactPage')
+              //       .schemaType('page')
+              //       .documentId('contact')
+              //   )
+              //   .icon(FaFileO)
             ])
         ),
       S.listItem()
@@ -87,12 +87,12 @@ export default () =>
       S.listItem()
         .title('Party Members')
         .schemaType('partyMember')
-        .child(S.documentTypeList('partyMember').title('Party Member')),
-      S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
-      ...S.documentTypeListItems().filter(
-        (listItem) => !hiddenTypes.includes(listItem.getId())
-      )
+        .child(S.documentTypeList('partyMember').title('Party Member'))
+      // S.listItem()
+      //   .title('Categories')
+      //   .schemaType('category')
+      //   .child(S.documentTypeList('category').title('Categories')),
+      // ...S.documentTypeListItems().filter(
+      //   (listItem) => !hiddenTypes.includes(listItem.getId())
+      // )
     ]);

@@ -1,7 +1,7 @@
 import MdPerson from 'react-icons/lib/md/person';
 
 export default {
-  type: 'object',
+  type: 'document',
   name: 'partyMember',
   title: 'Party Member',
   icon: MdPerson,
@@ -45,6 +45,7 @@ export default {
   ],
   preview: {
     select: {
+      characterName: 'characterName',
       personName: 'person.name',
       // roles: 'roles',
       media: 'person.image'
@@ -52,8 +53,10 @@ export default {
     prepare(data) {
       return {
         ...data,
-        title: data.personName,
-        subtitle: data.roles && data.roles.join('/')
+        // title: data.personName,
+        title: data.characterName,
+        subtitle: data.personName
+        // subtitle: data.roles && data.roles.join('/')
       };
     }
   }
