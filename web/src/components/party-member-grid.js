@@ -46,11 +46,6 @@ function ProfileCard(partyMemberInfo) {
 }
 
 function PartyMemberGrid({ partyMembers }) {
-  console.log('about page props: ', partyMembers);
-  const { characterName, race, person } = partyMembers;
-  const characterClass = partyMembers.class;
-  console.log('class: ', characterClass);
-
   return (
     // <div>this is text</div>
     <div className={styles.root}>

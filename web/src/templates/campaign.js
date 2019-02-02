@@ -95,8 +95,6 @@ const CampaignTemplate = (props) => {
 
   const allprops = { ...campaign, sessionNodes };
 
-  console.log('campaign template data: ', data);
-  console.log('campaign sessions: ', sessionNodes);
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}

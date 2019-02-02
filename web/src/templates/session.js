@@ -77,7 +77,6 @@ export const query = graphql`
 const SessionTemplate = (props) => {
   const { data, errors } = props;
   const session = data && data.session;
-  console.log(session.id);
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
