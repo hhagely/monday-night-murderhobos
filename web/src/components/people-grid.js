@@ -1,17 +1,18 @@
-import React from 'react'
-import BlockText from './block-text'
-import { buildImageObj } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
+import React from 'react';
+import BlockText from './block-text';
+import { buildImageObj } from '../lib/helpers';
+import { imageUrlFor } from '../lib/image-url';
 
-import styles from './people-grid.module.css'
-import { responsiveTitle2 } from '../components/typography.module.css'
+import styles from './people-grid.module.css';
+import { responsiveTitle2 } from '../components/typography.module.css';
 
-function ProfileCard ({ image, name, _rawBio }) {
+function ProfileCard({ image, name, _rawBio }) {
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileMediaThumb}>
         {image && image.asset && (
           <img
+            alt={image.alt}
             src={imageUrlFor(buildImageObj(image))
               .width(600)
               .height(600)
@@ -27,22 +28,22 @@ function ProfileCard ({ image, name, _rawBio }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
-function PeopleGrid ({ items, title }) {
+function PeopleGrid({ items, title }) {
   return (
     <div className={styles.root}>
       {<h2 className={responsiveTitle2}>{title}</h2>}
       <ul className={styles.grid}>
-        {items.map(item => (
+        {items.map((item) => (
           <li key={item.id}>
             <ProfileCard {...item} />
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default PeopleGrid
+export default PeopleGrid;

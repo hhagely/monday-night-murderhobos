@@ -7,7 +7,7 @@ export default {
   icon: MdPerson,
   fields: [
     {
-      title: 'Character name',
+      title: 'Character Name',
       name: 'characterName',
       type: 'string'
     },
@@ -26,37 +26,27 @@ export default {
       name: 'person',
       type: 'reference',
       to: { type: 'person' }
+    },
+    {
+      title: 'Character Image',
+      name: 'mainImage',
+      type: 'mainImage',
+      options: {
+        hotspot: true
+      }
     }
-    // {
-    //   title: 'Roles',
-    //   name: 'roles',
-    //   type: 'array',
-    //   of: [{ type: 'string' }],
-    //   options: {
-    //     layout: 'radio',
-    //     list: [
-    //       { title: 'Designer', value: 'designer' },
-    //       { title: 'Developer', value: 'developer' },
-    //       { title: 'Editor', value: 'editor' },
-    //       { title: 'Manager', value: 'manager' }
-    //     ]
-    //   }
-    // }
   ],
   preview: {
     select: {
       characterName: 'characterName',
       personName: 'person.name',
-      // roles: 'roles',
-      media: 'person.image'
+      media: 'mainImage'
     },
     prepare(data) {
       return {
         ...data,
-        // title: data.personName,
         title: data.characterName,
         subtitle: data.personName
-        // subtitle: data.roles && data.roles.join('/')
       };
     }
   }

@@ -37,6 +37,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
             <a
               target="_blank"
               href="https://mnmh.fandom.com/wiki/Monday_Night_MurderHobos_Wiki"
+              rel="noopener noreferrer"
             >
               Wiki
             </a>

@@ -7,16 +7,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
 import blockContent from './blockContent';
 import blockText from './blockText';
-import category from './category';
-import companyInfo from './companyInfo';
 import figure from './figure';
 import mainImage from './mainImage';
 import page from './page';
 import person from './person';
-import post from './post';
 import postAuthor from './postAuthor';
-import project from './project';
-import projectMember from './projectMember';
 import siteSettings from './siteSettings';
 import slideshow from './slideshow';
 import campaign from './campaign';
@@ -34,16 +29,11 @@ export default createSchema({
     // in the studio.
     blockContent,
     blockText,
-    // category,
-    // companyInfo,
     figure,
     mainImage,
     page,
     person,
-    // post,
-    // postAuthor,
-    // project,
-    // projectMember,
+    postAuthor,
     siteSettings,
     slideshow,
     campaign,

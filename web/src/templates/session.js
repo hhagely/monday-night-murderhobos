@@ -11,10 +11,6 @@ export const query = graphql`
     session: sanitySession(id: { eq: $id }) {
       id
       publishedAt
-      categories {
-        _id
-        title
-      }
       mainImage {
         crop {
           _key

@@ -50,12 +50,6 @@ export default {
       type: 'reference',
       to: [{ type: 'campaign' }]
     },
-    // {
-    //   name: 'categories',
-    //   title: 'Categories',
-    //   type: 'array',
-    //   of: [{ type: 'reference', to: { type: 'category' } }]
-    // },
     {
       name: 'body',
       title: 'Body',

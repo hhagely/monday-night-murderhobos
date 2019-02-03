@@ -5,7 +5,6 @@ import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockContent from '../block-content';
 import Container from '../container';
-import SessionPreviewGrid from '../session/session-preview-grid';
 
 import styles from './campaign.module.css';
 
@@ -46,7 +45,6 @@ function Campaign(props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {/* {members && <RoleList items={members} title="Authors" />} */}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
@@ -71,29 +69,6 @@ function Campaign(props) {
                 </ul>
               </div>
             )}
-            {/* {sessionNodes && (
-              <SessionPreviewGrid
-                title="Latest sessions"
-                nodes={sessionNodes}
-                browseMoreHref="/sessions/"
-              />
-            )} */}
-            {/* {relatedProjects && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>
-                  Related projects
-                </h3>
-                <ul>
-                  {relatedProjects.map((project) => (
-                    <li key={`related_${project._id}`}>
-                      <Link to={`/campaign/${project.slug.current}`}>
-                        {project.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
           </aside>
         </div>
       </Container>

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import BlockContent from '../components/block-content';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
-import PeopleGrid from '../components/people-grid';
 import PartyMemberGrid from '../components/party-member-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
@@ -24,29 +23,16 @@ export const query = graphql`
           characterName
           class
           race
-          person {
-            name
-            id
-            image {
-              asset {
-                _id
-              }
-            }
-          }
-        }
-      }
-    }
-    people: allSanityPerson {
-      edges {
-        node {
-          id
-          image {
+          mainImage {
+            alt
             asset {
               _id
             }
           }
-          name
-          _rawBio
+          person {
+            name
+            id
+          }
         }
       }
     }
@@ -67,7 +53,6 @@ const AboutPage = (props) => {
   const page = data && data.page;
   const partyMemberNodes =
     data && data.partyMembers && mapEdgesToNodes(data.partyMembers);
-  // const personNodes = data && data.people && mapEdgesToNodes(data.people);
 
   if (!page) {
     throw new Error(
@@ -82,7 +67,6 @@ const AboutPage = (props) => {
         <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
         {partyMemberNodes && partyMemberNodes.length > 0 && (
-          // <PeopleGrid items={personNodes} title="People" />
           <PartyMemberGrid partyMembers={partyMemberNodes} />
         )}
       </Container>

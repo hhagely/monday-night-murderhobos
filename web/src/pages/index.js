@@ -8,8 +8,6 @@ import CampaignPreviewGrid from '../components/campaign/campaign-preview-grid';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 
-const imgHeight = (9 / 16) * 600;
-
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
