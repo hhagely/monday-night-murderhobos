@@ -4,7 +4,7 @@
 .root {
   position: relative;
   z-index: 100;
-  background: #19216c;
+  background: var(--color-header-bg);
   color: #f5f7fa;
 }
 

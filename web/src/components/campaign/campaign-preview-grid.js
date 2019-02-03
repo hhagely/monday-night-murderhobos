@@ -5,7 +5,6 @@ import CampaignPreview from './campaign-preview';
 import styles from './campaign-preview-grid.module.css';
 
 function CampaignPreviewGrid(props) {
-  console.log(props);
   return (
     <div className={styles.root}>
       {props.title && (

@@ -22,8 +22,22 @@ module.exports = {
         overlayDrafts: true
       }
     },
-    'gatsby-plugin-manifest',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify-cache'
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Monday Night Murderhobos`,
+        short_name: `MNMH`,
+        start_url: `/`,
+        background_color: `#e0e8f9`,
+        theme_color: `#19216c`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`
+        // icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        // include_favicon: true, // Include favicon
+      }
+    },
+    'gatsby-plugin-netlify-cache',
+    'gatsby-plugin-offline'
   ]
 };
