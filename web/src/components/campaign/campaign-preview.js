@@ -8,7 +8,6 @@ import styles from './campaign-preview.module.css';
 import { responsiveTitle3 } from '../typography.module.css';
 
 function CampaignPreview(props) {
-  console.log('campaign preview props: ', props);
   return (
     <Link className={styles.root} to={`/campaign/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>

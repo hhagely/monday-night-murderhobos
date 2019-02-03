@@ -18,7 +18,6 @@ function Campaign(props) {
     publishedAt,
     sessionNodes
   } = props;
-  console.log('campaign props: ', props);
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
