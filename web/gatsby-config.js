@@ -22,6 +22,8 @@ module.exports = {
         overlayDrafts: true
       }
     },
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-manifest',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify-cache'
   ]
 };
