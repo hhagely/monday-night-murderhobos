@@ -24,16 +24,12 @@ function ProfileCard(partyMemberInfo) {
         )}
       </div>
       <h2 className={styles.headline}>{characterName}</h2>
-      <p>
-        <div className={styles.characterLabel}>Race/Class</div>
-        <div className={styles.characterInfo}>
-          {race} {characterClass}
-        </div>
-      </p>
-      <p>
-        <div className={styles.characterLabel}>Player</div>
-        <div className={styles.characterInfo}>{person.name}</div>
-      </p>
+      <div className={styles.characterLabel}>Race/Class</div>
+      <div className={styles.characterInfo}>
+        {race} {characterClass}
+      </div>
+      <div className={styles.characterLabel}>Player</div>
+      <div className={styles.characterInfo}>{person.name}</div>
     </div>
   );
 }

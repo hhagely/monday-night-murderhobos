@@ -30,6 +30,16 @@
 .excerpt {
   @nest & p {
     margin: 0.5em 0;
+
+    @nest & a {
+      color: var(--color-accent);
+
+      @media (hover: hover) {
+        @nest &:hover {
+          color: inherit;
+        }
+      }
+    }
   }
 
   @nest & strong {
