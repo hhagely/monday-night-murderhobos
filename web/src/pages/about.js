@@ -16,13 +16,16 @@ export const query = graphql`
       title
       _rawBody
     }
-    partyMembers: allSanityPartyMember {
+    partyMembers: allSanityPartyMember(
+      sort: { fields: [active], order: DESC }
+    ) {
       edges {
         node {
           id
           characterName
           class
           race
+          active
           mainImage {
             alt
             asset {

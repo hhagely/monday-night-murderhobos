@@ -34,6 +34,12 @@ export default {
       options: {
         hotspot: true
       }
+    },
+    {
+      title: 'Active',
+      name: 'active',
+      type: 'boolean',
+      validation: (Rule) => Rule.required()
     }
   ],
   preview: {
