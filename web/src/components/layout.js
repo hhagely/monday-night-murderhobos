@@ -4,6 +4,7 @@ import Header from './header';
 import '../styles/layout.css';
 import styles from './layout.module.css';
 
+// eslint-disable-next-line react/prop-types
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header

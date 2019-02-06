@@ -1,42 +1,39 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import BlogPostPreview from './blog-post-preview'
+import { Link } from 'gatsby';
+import React from 'react';
+import BlogPostPreview from './blog-post-preview';
 
-import styles from './blog-post-preview-grid.module.css'
+import styles from './blog-post-preview-grid.module.css';
 
-function BlogPostPreviewGrid (props) {
+// eslint-disable-next-line react/prop-types
+function BlogPostPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
-      {props.title && (
+      {title && (
         <h2 className={styles.headline}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
-          ) : (
-            props.title
-          )}
+          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
         </h2>
       )}
       <ul className={styles.grid}>
-        {props.nodes &&
-          props.nodes.map(node => (
+        {nodes &&
+          nodes.map((node) => (
             <li key={node.id}>
               <BlogPostPreview {...node} />
             </li>
           ))}
       </ul>
-      {props.browseMoreHref && (
+      {browseMoreHref && (
         <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
+          <Link to={browseMoreHref}>Browse more</Link>
         </div>
       )}
     </div>
-  )
+  );
 }
 
 BlogPostPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
-  browseMoreHref: ''
-}
+  browseMoreHref: '',
+};
 
-export default BlogPostPreviewGrid
+export default BlogPostPreviewGrid;

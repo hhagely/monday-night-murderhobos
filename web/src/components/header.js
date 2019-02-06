@@ -5,6 +5,7 @@ import { cn } from '../lib/helpers';
 
 import styles from './header.module.css';
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
@@ -13,6 +14,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       </h1>
 
       <button
+        type="button"
         className={styles.toggleNavButton}
         onClick={showNav ? onHideNav : onShowNav}
       >
@@ -24,9 +26,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
           <li>
             <Link to="/about/">About</Link>
           </li>
-          {/* <li>
-            <Link to="/projects/">Projects</Link>
-          </li> */}
           <li>
             <Link to="/campaigns">Campaigns</Link>
           </li>
@@ -42,9 +41,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
               Wiki
             </a>
           </li>
-          {/* <li>
-            <Link to="/contact/">Contact</Link>
-          </li> */}
         </ul>
       </nav>
     </div>

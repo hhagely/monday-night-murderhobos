@@ -86,6 +86,7 @@ export const query = graphql`
 `;
 
 const IndexPage = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 
   if (errors) {
@@ -96,6 +97,7 @@ const IndexPage = (props) => {
     );
   }
 
+  // eslint-disable-next-line prefer-destructuring
   const site = (data || {}).site;
   const sessionNodes = (data || {}).sessions
     ? mapEdgesToNodes(data.sessions)

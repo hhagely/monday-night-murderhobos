@@ -4,29 +4,26 @@ import CampaignPreview from './campaign-preview';
 
 import styles from './campaign-preview-grid.module.css';
 
-function CampaignPreviewGrid(props) {
+// eslint-disable-next-line react/prop-types
+function CampaignPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
-      {props.title && (
+      {title && (
         <h2 className={styles.headline}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
-          ) : (
-            props.title
-          )}
+          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
         </h2>
       )}
       <ul className={styles.grid}>
-        {props.nodes &&
-          props.nodes.map((node) => (
+        {nodes &&
+          nodes.map((node) => (
             <li key={node.id}>
               <CampaignPreview {...node} />
             </li>
           ))}
       </ul>
-      {props.browseMoreHref && (
+      {browseMoreHref && (
         <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
+          <Link to={browseMoreHref}>Browse more</Link>
         </div>
       )}
     </div>
@@ -36,7 +33,7 @@ function CampaignPreviewGrid(props) {
 CampaignPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
-  browseMoreHref: ''
+  browseMoreHref: '',
 };
 
 export default CampaignPreviewGrid;

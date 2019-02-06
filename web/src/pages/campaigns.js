@@ -40,6 +40,7 @@ export const query = graphql`
 `;
 
 const CampaignsPage = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
   if (errors) {
     return (

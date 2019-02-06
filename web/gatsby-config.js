@@ -1,5 +1,5 @@
 const {
-  api: { projectId, dataset }
+  api: { projectId, dataset },
 } = require('../studio/sanity.json');
 
 require('dotenv').config();
@@ -19,8 +19,8 @@ module.exports = {
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts: false
-      }
+        overlayDrafts: false,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -32,11 +32,11 @@ module.exports = {
         theme_color: `#19216c`,
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`
+        display: `standalone`,
         // icon: `src/images/icon.png`, // This path is relative to the root of the site.
         // include_favicon: true, // Include favicon
-      }
+      },
     },
-    'gatsby-plugin-offline'
-  ]
+    'gatsby-plugin-offline',
+  ],
 };

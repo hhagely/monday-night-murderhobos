@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
 import { Link } from 'gatsby';
@@ -15,11 +16,11 @@ function Campaign(props) {
     categories,
     mainImage,
     publishedAt,
-    sessionNodes
+    sessionNodes,
   } = props;
   return (
     <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
+      {mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))

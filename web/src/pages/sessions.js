@@ -38,6 +38,7 @@ export const query = graphql`
 `;
 
 const SessionPage = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 
   if (errors) {

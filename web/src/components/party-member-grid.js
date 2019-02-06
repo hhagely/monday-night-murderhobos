@@ -3,7 +3,7 @@ import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
 
 import styles from './party-member-grid.module.css';
-import { responsiveTitle2 } from '../components/typography.module.css';
+import { responsiveTitle2 } from './typography.module.css';
 
 function ProfileCard(partyMemberInfo) {
   const { characterName, race, person } = partyMemberInfo;
@@ -34,6 +34,7 @@ function ProfileCard(partyMemberInfo) {
   );
 }
 
+// eslint-disable-next-line react/prop-types
 function PartyMemberGrid({ partyMembers }) {
   return (
     <div className={styles.root}>

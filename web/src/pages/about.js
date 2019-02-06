@@ -43,6 +43,7 @@ export const query = graphql`
 `;
 
 const AboutPage = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 
   if (errors) {

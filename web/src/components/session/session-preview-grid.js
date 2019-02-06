@@ -4,29 +4,26 @@ import SessionPreview from './session-preview';
 
 import styles from './session-preview-grid.module.css';
 
-function SessionPreviewGrid(props) {
+// eslint-disable-next-line react/prop-types
+function SessionPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
-      {props.title && (
+      {title && (
         <h2 className={styles.headline}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
-          ) : (
-            props.title
-          )}
+          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
         </h2>
       )}
       <ul className={styles.grid}>
-        {props.nodes &&
-          props.nodes.map((node) => (
+        {nodes &&
+          nodes.map((node) => (
             <li key={node.id}>
               <SessionPreview {...node} />
             </li>
           ))}
       </ul>
-      {props.browseMoreHref && (
+      {browseMoreHref && (
         <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
+          <Link to={browseMoreHref}>Browse more</Link>
         </div>
       )}
     </div>
@@ -36,7 +33,7 @@ function SessionPreviewGrid(props) {
 SessionPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
-  browseMoreHref: ''
+  browseMoreHref: '',
 };
 
 export default SessionPreviewGrid;

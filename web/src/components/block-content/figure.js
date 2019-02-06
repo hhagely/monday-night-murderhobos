@@ -1,24 +1,25 @@
-import React from 'react'
-import { buildImageObj } from '../../lib/helpers'
-import { imageUrlFor } from '../../lib/image-url'
+import React from 'react';
+import { buildImageObj } from '../../lib/helpers';
+import { imageUrlFor } from '../../lib/image-url';
 
-import styles from './figure.module.css'
+import styles from './figure.module.css';
 
-function Figure (props) {
-  console.log(props)
+function Figure(props) {
+  // eslint-disable-next-line react/prop-types
+  const { asset, alt, caption } = props;
   return (
     <figure className={styles.root}>
-      {props.asset && (
+      {asset && (
         <img
           src={imageUrlFor(buildImageObj(props))
             .width(1200)
             .url()}
-          alt={props.alt}
+          alt={alt}
         />
       )}
-      <figcaption className={styles.caption}>{props.caption}</figcaption>
+      <figcaption className={styles.caption}>{caption}</figcaption>
     </figure>
-  )
+  );
 }
 
-export default Figure
+export default Figure;

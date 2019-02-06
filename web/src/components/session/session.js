@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
 import { buildImageObj } from '../../lib/helpers';
@@ -15,7 +16,7 @@ function Session(props) {
     categories,
     title,
     mainImage,
-    publishedAt
+    publishedAt,
   } = props;
   return (
     <article className={styles.root}>

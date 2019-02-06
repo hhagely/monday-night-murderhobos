@@ -1,12 +1,12 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import BlockContent from '../components/block-content'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import React from 'react';
+import { graphql } from 'gatsby';
+import BlockContent from '../components/block-content';
+import Container from '../components/container';
+import GraphQLErrorList from '../components/graphql-error-list';
+import SEO from '../components/seo';
+import Layout from '../containers/layout';
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle1 } from '../components/typography.module.css';
 
 export const query = graphql`
   query ContactPageQuery {
@@ -15,25 +15,26 @@ export const query = graphql`
       _rawBody
     }
   }
-`
+`;
 
-const ContactPage = props => {
-  const { data, errors } = props
+const ContactPage = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { data, errors } = props;
 
   if (errors) {
     return (
       <Layout>
         <GraphQLErrorList errors={errors} />
       </Layout>
-    )
+    );
   }
 
-  const page = data.page
+  const { page } = data;
 
   if (!page) {
     throw new Error(
       'Missing "Contact" page data. Open the studio at http://localhost:3333 and add "Contact" page data'
-    )
+    );
   }
 
   return (
@@ -44,13 +45,13 @@ const ContactPage = props => {
         <BlockContent blocks={page._rawBody || []} />
       </Container>
     </Layout>
-  )
-}
+  );
+};
 ContactPage.defaultProps = {
   data: {
     page: {
-      title: 'No title'
-    }
-  }
-}
-export default ContactPage
+      title: 'No title',
+    },
+  },
+};
+export default ContactPage;
