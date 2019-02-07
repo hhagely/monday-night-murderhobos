@@ -9,51 +9,51 @@ export default {
     {
       title: 'Character Name',
       name: 'characterName',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Class',
       name: 'class',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Race',
       name: 'race',
-      type: 'string'
+      type: 'string',
     },
     {
       title: 'Player',
       name: 'person',
       type: 'reference',
-      to: { type: 'person' }
+      to: { type: 'person' },
     },
     {
       title: 'Character Image',
       name: 'mainImage',
       type: 'mainImage',
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       title: 'Active',
       name: 'active',
       type: 'boolean',
-      validation: (Rule) => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
   ],
   preview: {
     select: {
       characterName: 'characterName',
       personName: 'person.name',
-      media: 'mainImage'
+      media: 'mainImage',
     },
     prepare(data) {
       return {
         ...data,
         title: data.characterName,
-        subtitle: data.personName
+        subtitle: data.personName,
       };
-    }
-  }
+    },
+  },
 };

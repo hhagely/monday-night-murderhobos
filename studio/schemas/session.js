@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'slug',
@@ -14,47 +14,47 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'blockText',
     },
     {
       name: 'authors',
       title: 'Authors',
       type: 'array',
-      of: [{ type: 'postAuthor' }]
+      of: [{ type: 'postAuthor' }],
     },
     {
       name: 'partyMembers',
       title: 'Party Members',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'partyMember' } }]
+      of: [{ type: 'reference', to: { type: 'partyMember' } }],
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
     },
     {
       name: 'campaign',
       title: 'Campaign',
       type: 'reference',
-      to: [{ type: 'campaign' }]
+      to: [{ type: 'campaign' }],
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
-    }
+      type: 'blockContent',
+    },
   ],
   orderings: [
     {
@@ -62,23 +62,23 @@ export default {
       name: 'publishingDateAsc',
       by: [
         { field: 'publishedAt', direction: 'asc' },
-        { field: 'title', direction: 'asc' }
-      ]
+        { field: 'title', direction: 'asc' },
+      ],
     },
     {
       title: 'Publishing date old->new',
       name: 'publishingDateDesc',
       by: [
         { field: 'publishedAt', direction: 'desc' },
-        { field: 'title', direction: 'asc' }
-      ]
-    }
+        { field: 'title', direction: 'asc' },
+      ],
+    },
   ],
   preview: {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'mainImage',
     },
     prepare({ title = 'No title', publishedAt, image }) {
       return {
@@ -86,8 +86,8 @@ export default {
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date',
-        media: image
+        media: image,
       };
-    }
-  }
+    },
+  },
 };

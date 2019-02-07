@@ -1,4 +1,4 @@
-import MdApps from 'react-icons/lib/md/apps'
+import MdApps from 'react-icons/lib/md/apps';
 
 export default {
   name: 'category',
@@ -9,13 +9,13 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'text'
-    }
+      type: 'text',
+    },
   ],
-  liveEdit: true
-}
+  liveEdit: true,
+};

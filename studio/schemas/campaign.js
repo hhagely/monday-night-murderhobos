@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Campaign Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'slug',
@@ -14,39 +14,39 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'blockText',
     },
     {
       name: 'startedAt',
       title: 'Started at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'endedAt',
       title: 'Ended at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
-    }
+      type: 'blockContent',
+    },
     // {
     //   name: 'sessions',
     //   title: 'Sessions',
@@ -58,7 +58,7 @@ export default {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'mainImage',
     },
     prepare({ title = 'No title', publishedAt, image }) {
       return {
@@ -66,8 +66,8 @@ export default {
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date',
-        media: image
+        media: image,
       };
-    }
-  }
+    },
+  },
 };

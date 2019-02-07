@@ -1,5 +1,6 @@
+/* eslint-disable import/no-unresolved */
 import S from '@sanity/desk-tool/structure-builder';
-import MdBusiness from 'react-icons/lib/md/business';
+// import MdBusiness from 'react-icons/lib/md/business';
 import MdSettings from 'react-icons/lib/md/settings';
 import FaFileO from 'react-icons/lib/fa/file-o';
 
@@ -13,7 +14,7 @@ const hiddenTypes = [
   'siteSettings',
   'campaign',
   'session',
-  'partyMember'
+  'partyMember',
 ];
 
 export default () =>
@@ -29,19 +30,6 @@ export default () =>
             .documentId('siteSettings')
         )
         .icon(MdSettings),
-      // S.listItem()
-      //   .title('Company Info')
-      //   .child(
-      //     S.editor()
-      //       .id('companyInfo')
-      //       .schemaType('companyInfo')
-      //       .documentId('companyInfo')
-      //   )
-      //   .icon(MdBusiness),
-      // S.listItem()
-      //   .title('Projects')
-      //   .schemaType('project')
-      //   .child(S.documentTypeList('project')),
       S.listItem()
         .title('Campaigns')
         .schemaType('campaign')
@@ -50,10 +38,6 @@ export default () =>
         .title('Sessions')
         .schemaType('session')
         .child(S.documentTypeList('session')),
-      // S.listItem()
-      //   .title('Blog posts')
-      //   .schemaType('post')
-      //   .child(S.documentTypeList('post').title('Blog posts')),
       S.listItem()
         .title('Pages')
         .child(
@@ -68,16 +52,7 @@ export default () =>
                     .schemaType('page')
                     .documentId('about')
                 )
-                .icon(FaFileO)
-              // S.listItem()
-              //   .title('Contact')
-              //   .child(
-              //     S.editor()
-              //       .id('contactPage')
-              //       .schemaType('page')
-              //       .documentId('contact')
-              //   )
-              //   .icon(FaFileO)
+                .icon(FaFileO),
             ])
         ),
       S.listItem()
@@ -87,12 +62,5 @@ export default () =>
       S.listItem()
         .title('Party Members')
         .schemaType('partyMember')
-        .child(S.documentTypeList('partyMember').title('Party Member'))
-      // S.listItem()
-      //   .title('Categories')
-      //   .schemaType('category')
-      //   .child(S.documentTypeList('category').title('Categories')),
-      // ...S.documentTypeListItems().filter(
-      //   (listItem) => !hiddenTypes.includes(listItem.getId())
-      // )
+        .child(S.documentTypeList('partyMember').title('Party Member')),
     ]);

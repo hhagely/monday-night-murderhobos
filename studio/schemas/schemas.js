@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 // First, we must import the schema creator
 import createSchema from 'part:@sanity/base/schema-creator';
 
@@ -38,9 +39,9 @@ export default createSchema({
     slideshow,
     campaign,
     session,
-    partyMember
+    partyMember,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-  ])
+  ]),
 });

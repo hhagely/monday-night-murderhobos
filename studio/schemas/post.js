@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'slug',
@@ -14,68 +14,74 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'blockText',
     },
     {
       name: 'authors',
       title: 'Authors',
       type: 'array',
-      of: [{ type: 'postAuthor' }]
+      of: [{ type: 'postAuthor' }],
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
     },
     {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }]
+      of: [{ type: 'reference', to: { type: 'category' } }],
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
-    }
+      type: 'blockContent',
+    },
   ],
   orderings: [
     {
       title: 'Publishing date new–>old',
       name: 'publishingDateAsc',
-      by: [{ field: 'publishedAt', direction: 'asc' }, { field: 'title', direction: 'asc' }]
+      by: [
+        { field: 'publishedAt', direction: 'asc' },
+        { field: 'title', direction: 'asc' },
+      ],
     },
     {
       title: 'Publishing date old->new',
       name: 'publishingDateDesc',
-      by: [{ field: 'publishedAt', direction: 'desc' }, { field: 'title', direction: 'asc' }]
-    }
+      by: [
+        { field: 'publishedAt', direction: 'desc' },
+        { field: 'title', direction: 'asc' },
+      ],
+    },
   ],
   preview: {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'mainImage',
     },
-    prepare ({ title = 'No title', publishedAt, image }) {
+    prepare({ title = 'No title', publishedAt, image }) {
       return {
         title,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date',
-        media: image
-      }
-    }
-  }
-}
+        media: image,
+      };
+    },
+  },
+};

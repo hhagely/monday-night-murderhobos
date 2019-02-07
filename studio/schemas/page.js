@@ -7,12 +7,12 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
-    }
-  ]
-}
+      type: 'blockContent',
+    },
+  ],
+};

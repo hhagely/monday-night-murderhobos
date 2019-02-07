@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
     },
     {
       name: 'slug',
@@ -14,72 +14,72 @@ export default {
       type: 'slug',
       options: {
         source: 'title',
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'blockText',
     },
     {
       name: 'members',
       title: 'Members',
       type: 'array',
-      of: [{ type: 'projectMember' }]
+      of: [{ type: 'projectMember' }],
     },
     {
       name: 'startedAt',
       title: 'Started at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'endedAt',
       title: 'Ended at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'mainImage'
+      type: 'mainImage',
     },
     {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }]
+      of: [{ type: 'reference', to: { type: 'category' } }],
     },
     {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime'
+      type: 'datetime',
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'blockContent',
     },
     {
       name: 'relatedProjects',
       title: 'Related projects',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'project' } }]
-    }
+      of: [{ type: 'reference', to: { type: 'project' } }],
+    },
   ],
   preview: {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'mainImage',
     },
-    prepare ({ title = 'No title', publishedAt, image }) {
+    prepare({ title = 'No title', publishedAt, image }) {
       return {
         title,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date',
-        media: image
-      }
-    }
-  }
-}
+        media: image,
+      };
+    },
+  },
+};
