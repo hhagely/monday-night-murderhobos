@@ -47,7 +47,10 @@ function Session(props) {
               </div>
             )}
             {authors && <RoleList items={authors} title="Authors" />}
-            {categories && (
+            {/* 
+            //todo: add campaigns here.
+            */}
+            {/* {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
@@ -56,7 +59,7 @@ function Session(props) {
                   ))}
                 </ul>
               </div>
-            )}
+            )} */}
           </aside>
         </div>
       </Container>

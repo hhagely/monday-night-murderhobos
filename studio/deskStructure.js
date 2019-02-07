@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import S from '@sanity/desk-tool/structure-builder';
 // import MdBusiness from 'react-icons/lib/md/business';
-import MdSettings from 'react-icons/lib/md/settings';
-import FaFileO from 'react-icons/lib/fa/file-o';
+import { MdSettings } from 'react-icons/md';
+import { FaFileO } from 'react-icons/fa';
 
 const hiddenTypes = [
   'category',

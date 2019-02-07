@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
@@ -40,10 +41,23 @@ const serializers = {
       return <Slideshow {...node} />;
     },
   },
+  marks: {
+    link: ({ mark, children }) => {
+      // Read https://css-tricks.com/use-target_blank/
+      const { blank, href } = mark;
+      console.log('external mark: ', mark);
+      return blank ? (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      ) : (
+        <a href={href}>{children}</a>
+      );
+    },
+  },
 };
 
-const BlockContent = ({ blocks }) => (
-  <BaseBlockContent blocks={blocks} serializers={serializers} />
-);
-
+const BlockContent = ({ blocks }) => {
+  return <BaseBlockContent blocks={blocks} serializers={serializers} />;
+};
 export default BlockContent;

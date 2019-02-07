@@ -8,6 +8,7 @@ function ucfirst(str) {
   return `${str.substr(0, 1).toUpperCase()}${str.substr(1)}`;
 }
 
+// eslint-disable-next-line react/prop-types
 function RoleList({ items, title }) {
   return (
     <div className={styles.root}>

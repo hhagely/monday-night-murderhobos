@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line react/prop-types
 const GraphQLErrorList = ({ errors }) => (
   <div>
     <h1>GraphQL Error</h1>

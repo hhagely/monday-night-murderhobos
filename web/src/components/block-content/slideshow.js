@@ -4,6 +4,7 @@ import { imageUrlFor } from '../../lib/image-url';
 
 import styles from './slideshow.module.css';
 
+// eslint-disable-next-line react/prop-types
 function Slideshow({ slides }) {
   if (!slides) return null;
   const len = slides.length;
