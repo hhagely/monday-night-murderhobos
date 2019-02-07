@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
+import { Link } from 'gatsby';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockContent from '../block-content';
@@ -10,14 +11,7 @@ import RoleList from '../role-list';
 import styles from './session.module.css';
 
 function Session(props) {
-  const {
-    _rawBody,
-    authors,
-    categories,
-    title,
-    mainImage,
-    publishedAt,
-  } = props;
+  const { _rawBody, authors, campaign, title, mainImage, publishedAt } = props;
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -50,6 +44,19 @@ function Session(props) {
             {/* 
             //todo: add campaigns here.
             */}
+            {campaign && (
+              <div className={styles.campaign}>
+                <h3 className={styles.campaignHeadline}>Campaign</h3>
+                <ul>
+                  <li>
+                    <Link to={`/campaign/${campaign.slug.current}`}>
+                      {campaign.title}
+                    </Link>
+                  </li>
+                  {/* <li>{campaign.title}</li> */}
+                </ul>
+              </div>
+            )}
             {/* {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>

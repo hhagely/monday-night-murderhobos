@@ -38,6 +38,12 @@ export const query = graphql`
         current
       }
       _rawBody
+      campaign {
+        title
+        slug {
+          current
+        }
+      }
       authors {
         _key
         person {
