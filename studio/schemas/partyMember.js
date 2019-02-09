@@ -1,10 +1,10 @@
-import { MdPerson } from 'react-icons/md';
+import { GiBackup } from 'react-icons/gi';
 
 export default {
   type: 'document',
   name: 'partyMember',
   title: 'Party Member',
-  icon: MdPerson,
+  icon: GiBackup,
   fields: [
     {
       title: 'Character Name',

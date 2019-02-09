@@ -2,7 +2,7 @@ import { MdPerson } from 'react-icons/md';
 
 export default {
   name: 'person',
-  title: 'Person',
+  title: 'Players',
   type: 'document',
   icon: MdPerson,
   liveEdit: false,

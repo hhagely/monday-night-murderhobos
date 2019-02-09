@@ -1,7 +1,10 @@
+import { GiSwordsEmblem } from 'react-icons/gi';
+
 export default {
   name: 'session',
   title: 'Session',
   type: 'document',
+  icon: GiSwordsEmblem,
   fields: [
     {
       name: 'title',

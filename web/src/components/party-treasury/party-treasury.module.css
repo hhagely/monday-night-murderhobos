@@ -1,0 +1,74 @@
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
+
+table.treasuryTable {
+  width: 100%;
+  border-spacing: 0px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.2);
+  border-radius: 10px;
+
+  @nest & thead {
+    background: var(--color-thead-bg);
+    color: var(--color-thead-text);
+
+    @nest & th {
+      text-align: left;
+      padding: 25px 20px;
+    }
+
+    @nest & th:first-child {
+      border-radius: 10px 0 0 0;
+    }
+
+    @nest & th:last-child {
+      border-radius: 0 10px 0 0;
+    }
+  }
+
+  @nest & tbody {
+    background: var(--color-tbody-bg);
+    color: var(--color-tbody-text);
+
+    @nest & tr {
+      padding: 15px 0;
+    }
+
+    @nest & th {
+      text-align: left;
+      padding: 25px 20px;
+      border-top: 1px solid #ccc;
+
+      @nest & a {
+        color: var(--color-tbody-text);
+
+        @media (hover: hover) {
+          @nest &:hover {
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    @nest & tr:last-child {
+      @nest & th:first-child {
+        border-radius: 0 0 0 10px;
+      }
+
+      @nest & th:last-child {
+        border-radius: 0 0 10px 0;
+      }
+    }
+  }
+}
+
+.charInfo {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+}
+
+.charSubInfo {
+  margin-top: 10px;
+  font-size: 0.75em;
+  color: var(--color-tbody-sub-text);
+}

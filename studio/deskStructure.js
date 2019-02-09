@@ -1,8 +1,9 @@
 /* eslint-disable import/no-unresolved */
 import S from '@sanity/desk-tool/structure-builder';
 // import MdBusiness from 'react-icons/lib/md/business';
-import { MdSettings } from 'react-icons/md';
+import { MdSettings, MdContentCopy } from 'react-icons/md';
 import { FaFileO } from 'react-icons/fa';
+import { IoIosPaper } from 'react-icons/io';
 
 const hiddenTypes = [
   'category',
@@ -39,6 +40,10 @@ export default () =>
         .schemaType('session')
         .child(S.documentTypeList('session')),
       S.listItem()
+        .title('Party Treasury')
+        .schemaType('partyTreasury')
+        .child(S.documentTypeList('partyTreasury')),
+      S.listItem()
         .title('Pages')
         .child(
           S.list()
@@ -52,13 +57,14 @@ export default () =>
                     .schemaType('page')
                     .documentId('about')
                 )
-                .icon(FaFileO),
+                .icon(IoIosPaper),
             ])
-        ),
+        )
+        .icon(IoIosPaper),
       S.listItem()
-        .title('People')
+        .title('Players')
         .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
+        .child(S.documentTypeList('person').title('Players')),
       S.listItem()
         .title('Party Members')
         .schemaType('partyMember')

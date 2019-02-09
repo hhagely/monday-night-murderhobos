@@ -6,4 +6,10 @@
   /* --color-accent: #f43; */
   --color-accent: #616e7c;
   --color-header-bg: #19216c;
+  --color-thead-bg: #e4e7eb;
+  --color-thead-text: #52606d;
+  --color-thead-border-bottom: #98aeeb;
+  --color-tbody-bg: #f5f7fa;
+  --color-tbody-text: #323f4b;
+  --color-tbody-sub-text: #7b8794;
 }

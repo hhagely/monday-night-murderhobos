@@ -41,9 +41,6 @@ function Session(props) {
               </div>
             )}
             {authors && <RoleList items={authors} title="Authors" />}
-            {/* 
-            //todo: add campaigns here.
-            */}
             {campaign && (
               <div className={styles.campaign}>
                 <h3 className={styles.campaignHeadline}>Campaign</h3>
@@ -53,20 +50,9 @@ function Session(props) {
                       {campaign.title}
                     </Link>
                   </li>
-                  {/* <li>{campaign.title}</li> */}
                 </ul>
               </div>
             )}
-            {/* {categories && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
-                <ul>
-                  {categories.map((category) => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
           </aside>
         </div>
       </Container>

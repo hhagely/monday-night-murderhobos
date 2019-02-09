@@ -18,6 +18,7 @@ import slideshow from './slideshow';
 import campaign from './campaign';
 import session from './session';
 import partyMember from './partyMember';
+import partyTreasury from './partyTreasury';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -40,6 +41,7 @@ export default createSchema({
     campaign,
     session,
     partyMember,
+    partyTreasury,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

@@ -1,7 +1,10 @@
+import { GiCastle } from 'react-icons/gi';
+
 export default {
   name: 'campaign',
   title: 'Campaign',
   type: 'document',
+  icon: GiCastle,
   fields: [
     {
       name: 'title',
