@@ -1,8 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import S from '@sanity/desk-tool/structure-builder';
-// import MdBusiness from 'react-icons/lib/md/business';
-import { MdSettings, MdContentCopy } from 'react-icons/md';
-import { FaFileO } from 'react-icons/fa';
+import { MdSettings } from 'react-icons/md';
 import { IoIosPaper } from 'react-icons/io';
 
 const hiddenTypes = [
@@ -44,6 +42,22 @@ export default () =>
         .schemaType('partyTreasury')
         .child(S.documentTypeList('partyTreasury')),
       S.listItem()
+        .title('Bestiary')
+        .schemaType('bestiary')
+        .child(S.documentTypeList('bestiary').title('Beasts')),
+      S.listItem()
+        .title('Players')
+        .schemaType('person')
+        .child(S.documentTypeList('person').title('Players')),
+      S.listItem()
+        .title('Party Members')
+        .schemaType('partyMember')
+        .child(S.documentTypeList('partyMember').title('Party Member')),
+      // S.listItem()
+      //   .title('Graveyard')
+      //   .schemaType('graveyard')
+      //   .child(S.documentTypeList('graveyard')),
+      S.listItem()
         .title('Pages')
         .child(
           S.list()
@@ -61,12 +75,4 @@ export default () =>
             ])
         )
         .icon(IoIosPaper),
-      S.listItem()
-        .title('Players')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('Players')),
-      S.listItem()
-        .title('Party Members')
-        .schemaType('partyMember')
-        .child(S.documentTypeList('partyMember').title('Party Member')),
     ]);

@@ -5,28 +5,38 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
-import PartyTreasury from '../components/party-treasury/party-treasury';
+import BestiaryGrid from '../components/bestiary/bestiary-grid';
 
 import { responsiveTitle1 } from '../components/typography.module.css';
 
 export const query = graphql`
-  query PartyTreasuryPageQuery {
-    treasuryItems: allSanityPartyTreasury {
+  query BestiaryPageQuery {
+    bestiary: allSanityBestiary {
       edges {
         node {
           id
-          item {
+          name
+          mainImage {
+            alt
+            asset {
+              _id
+            }
+          }
+          link
+          campaign {
+            id
+            title
+            _rawSlug
+          }
+          sessions {
+            id
+            title
+            _rawSlug
+          }
+          loot {
+            _key
             itemName
             link
-            value
-          }
-          owner {
-            characterName
-            race
-            class
-            person {
-              name
-            }
           }
         }
       }
@@ -34,7 +44,7 @@ export const query = graphql`
   }
 `;
 
-const PartyTreasuryPage = (props) => {
+const BestiaryPage = (props) => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 
@@ -46,20 +56,19 @@ const PartyTreasuryPage = (props) => {
     );
   }
 
-  const treasuryNodes =
-    data && data.treasuryItems && mapEdgesToNodes(data.treasuryItems);
+  const bestiaryNodes = data && data.bestiary && mapEdgesToNodes(data.bestiary);
 
   return (
     <Layout>
-      <SEO title="Party Treasury" />
+      <SEO title="Bestiary" />
       <Container>
-        <h1 className={responsiveTitle1}>Party Treasury</h1>
-        {treasuryNodes && treasuryNodes.length > 0 && (
-          <PartyTreasury items={treasuryNodes} />
+        <h1 className={responsiveTitle1}>Bestiary</h1>
+        {bestiaryNodes && bestiaryNodes.length > 0 && (
+          <BestiaryGrid items={bestiaryNodes} />
         )}
       </Container>
     </Layout>
   );
 };
 
-export default PartyTreasuryPage;
+export default BestiaryPage;

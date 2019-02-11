@@ -19,6 +19,9 @@ import campaign from './campaign';
 import session from './session';
 import partyMember from './partyMember';
 import partyTreasury from './partyTreasury';
+import bestiary from './bestiary';
+import lootItem from './lootItem';
+import graveyard from './graveyard';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -42,6 +45,9 @@ export default createSchema({
     session,
     partyMember,
     partyTreasury,
+    bestiary,
+    lootItem,
+    graveyard,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

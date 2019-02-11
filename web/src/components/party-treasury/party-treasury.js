@@ -17,7 +17,8 @@ function PartyTreasury({ items }) {
       </thead>
       <tbody>
         {items.map((item) => {
-          const { id, link, itemName, value, owner } = item;
+          const { id, owner } = item;
+          const { itemName, link, value } = item.item;
           const { characterName, race, person } = owner;
 
           return (

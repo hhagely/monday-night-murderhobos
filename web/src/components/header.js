@@ -36,6 +36,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
             <Link to="/party-treasury/">Party Treasury</Link>
           </li>
           <li>
+            <Link to="/bestiary/">Bestiary</Link>
+          </li>
+          <li>
             <a
               target="_blank"
               href="https://mnmh.fandom.com/wiki/Monday_Night_MurderHobos_Wiki"
