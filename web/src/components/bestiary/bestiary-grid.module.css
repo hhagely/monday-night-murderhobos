@@ -64,5 +64,33 @@
 .info {
   font: inherit;
   font-weight: 700;
-  margin: 0 0 0.5em 0;
+  margin: 0 0 1em 0;
+
+  @nest & a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @nest & a:hover {
+    text-decoration: underline;
+  }
+}
+
+.sessions {
+  list-style: none;
+  padding-left: 0;
+}
+
+.loot {
+  width: 100%;
+  font-weight: 500;
+  margin-top: 8px;
+  border-spacing: 0;
+
+  @nest & thead {
+    @nest & th {
+      font-weight: 300;
+      font-size: 0.75em;
+    }
+  }
 }

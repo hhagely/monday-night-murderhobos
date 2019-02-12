@@ -26,17 +26,22 @@ export const query = graphql`
           campaign {
             id
             title
-            _rawSlug
+            slug {
+              current
+            }
           }
           sessions {
             id
             title
-            _rawSlug
+            slug {
+              current
+            }
           }
           loot {
             _key
             itemName
             link
+            value
           }
         }
       }
