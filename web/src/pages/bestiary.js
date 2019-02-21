@@ -16,9 +16,32 @@ export const query = graphql`
         node {
           id
           name
+          _rawDescription
           mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
             alt
             asset {
+              # fixed(width: 197) {
+              #   ...GatsbySanityImageFixed
+              # }
+              fluid(maxWidth: 600) {
+                ...GatsbySanityImageFluid
+              }
               _id
             }
           }

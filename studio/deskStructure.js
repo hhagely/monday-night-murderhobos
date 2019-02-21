@@ -53,10 +53,14 @@ export default () =>
         .title('Party Members')
         .schemaType('partyMember')
         .child(S.documentTypeList('partyMember').title('Party Member')),
-      // S.listItem()
-      //   .title('Graveyard')
-      //   .schemaType('graveyard')
-      //   .child(S.documentTypeList('graveyard')),
+      S.listItem()
+        .title(`NPC's`)
+        .schemaType('npc')
+        .child(S.documentTypeList('npc').title('NPC')),
+      S.listItem()
+        .title('Graveyard')
+        .schemaType('graveyard')
+        .child(S.documentTypeList('graveyard')),
       S.listItem()
         .title('Pages')
         .child(

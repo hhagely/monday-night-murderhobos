@@ -7,9 +7,9 @@ export default {
   icon: GiBackup,
   fields: [
     {
-      title: 'Character Name',
-      name: 'characterName',
-      type: 'string',
+      title: 'Character',
+      name: 'character',
+      type: 'character',
     },
     {
       title: 'Class',
@@ -28,14 +28,6 @@ export default {
       to: { type: 'person' },
     },
     {
-      title: 'Character Image',
-      name: 'mainImage',
-      type: 'mainImage',
-      options: {
-        hotspot: true,
-      },
-    },
-    {
       title: 'Active',
       name: 'active',
       type: 'boolean',
@@ -44,9 +36,9 @@ export default {
   ],
   preview: {
     select: {
-      characterName: 'characterName',
+      characterName: 'character.characterName',
       personName: 'person.name',
-      media: 'mainImage',
+      media: 'character.mainImage',
     },
     prepare(data) {
       return {

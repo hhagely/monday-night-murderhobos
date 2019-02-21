@@ -22,6 +22,8 @@ import partyTreasury from './partyTreasury';
 import bestiary from './bestiary';
 import lootItem from './lootItem';
 import graveyard from './graveyard';
+import npc from './npc';
+import character from './character';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -48,6 +50,8 @@ export default createSchema({
     bestiary,
     lootItem,
     graveyard,
+    npc,
+    character,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

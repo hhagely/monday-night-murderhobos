@@ -1,0 +1,102 @@
+@import '../../styles/vars.css';
+
+.profileCard {
+  margin: 1rem 0;
+}
+
+.profileMediaThumb {
+  position: relative;
+  padding-bottom: 100%;
+  background: #eee;
+
+  @nest & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.headline {
+  font: inherit;
+  font-weight: 700;
+  margin: 1em 0 1em 0;
+}
+
+.label {
+  font-size: var(--font-small-size);
+}
+
+.info {
+  font: inherit;
+  font-weight: 700;
+  margin: 0 0 1em 0;
+
+  @nest & a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @nest & a:hover {
+    text-decoration: underline;
+  }
+}
+
+.sessions {
+  list-style: none;
+  padding-left: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.loot {
+  width: 100%;
+  font-weight: 500;
+  margin-top: 8px;
+  border-spacing: 0;
+  margin-bottom: 24px;
+
+  @nest & thead {
+    @nest & th {
+      font-weight: 300;
+      font-size: 0.75em;
+      text-align: left;
+    }
+  }
+
+  @nest & tbody {
+    @nest & th {
+      text-align: left;
+    }
+  }
+}
+
+.modal {
+  display: grid;
+  grid-template-rows: 10fr 1fr;
+  grid-auto-rows: minmax(min-content, auto);
+}
+
+.modalContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.modalFooter {
+  display: grid;
+  justify-items: end;
+  align-items: end;
+}
+
+.modalCloseButton {
+  padding: 8px 26px;
+  border-radius: 5px;
+  background-color: var(--color-button-primary);
+  color: var(--color-header-text);
+  font-weight: 700;
+  font-size: 1em;
+  box-shadow: 0 1px 3px hsla(0%, 0%, 0%, 0.2);
+}

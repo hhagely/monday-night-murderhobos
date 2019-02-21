@@ -45,7 +45,6 @@ const serializers = {
     link: ({ mark, children }) => {
       // Read https://css-tricks.com/use-target_blank/
       const { blank, href } = mark;
-      console.log('external mark: ', mark);
       return blank ? (
         <a href={href} target="_blank" rel="noopener noreferrer">
           {children}
