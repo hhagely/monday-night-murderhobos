@@ -6,8 +6,9 @@ import { imageUrlFor } from '../../lib/image-url';
 import styles from './graveyard-grid.module.css';
 
 function ProfileCard(characterInfo) {
+  console.log('char: ', characterInfo);
   const { name, campaign, sessions, link, loot, mainImage } = characterInfo;
-  console.log('campaign: ', campaign);
+  // console.log('campaign: ', campaign);
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileMediaThumb}>
@@ -23,6 +24,9 @@ function ProfileCard(characterInfo) {
         )}
       </div>
       <h2 className={styles.headline}>{name}</h2>
+      {campaign && campaign.slug && (
+        
+      )}
       <div className={styles.label}>Campaign</div>
       <div className={styles.info}>
         <Link to={`/campaign/${campaign.slug.current}`}>{campaign.title}</Link>

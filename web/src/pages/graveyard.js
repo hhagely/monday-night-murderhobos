@@ -5,7 +5,7 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
-import BestiaryGrid from '../components/graveyard/graveyard-grid';
+// import GraveyardGrid from '../components/graveyard/graveyard-grid';
 
 import { responsiveTitle1 } from '../components/typography.module.css';
 
@@ -26,9 +26,15 @@ export const query = graphql`
           # }
           lastSession {
             title
+            slug {
+              current
+            }
             _rawSlug
             campaign {
               title
+              slug {
+                current
+              }
               _rawSlug
             }
           }
@@ -58,9 +64,9 @@ const GraveyardPage = (props) => {
       <SEO title="Graveyard" />
       <Container>
         <h1 className={responsiveTitle1}>Graveyard</h1>
-        {graveyardNodes && graveyardNodes.length > 0 && (
-          <BestiaryGrid items={graveyardNodes} />
-        )}
+        {/* {graveyardNodes && graveyardNodes.length > 0 && (
+          <GraveyardGrid items={graveyardNodes} />
+        )} */}
       </Container>
     </Layout>
   );
