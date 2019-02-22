@@ -51,6 +51,12 @@ export default {
       type: 'array',
       of: [{ type: 'lootItem' }],
     },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'bestiaryTag' } }],
+    },
   ],
   preview: {
     select: {

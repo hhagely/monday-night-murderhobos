@@ -1,0 +1,43 @@
+@import '../styles/vars.css';
+
+.bestiaryTagButton {
+  background-color: var(--color-button-tag-default-bg);
+  color: var(--color-button-tag-default-text);
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1em;
+  box-shadow: 0 1px 3px hsla(0%, 0%, 0%, 0.2);
+}
+
+.bestiaryTagButton:hover {
+  background-color: var(--color-button-tag-default-hover);
+}
+
+.bestiaryTagButtonSelected {
+  background-color: var(--color-button-tag-selected-bg);
+  color: var(--color-button-tag-default-text);
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1em;
+  box-shadow: 0 1px 3px hsla(0%, 0%, 0%, 0.2);
+}
+
+.bestiaryTagButtonSelected:hover {
+  background-color: var(--color-button-tag-selected-hover);
+}
+
+.tagGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  list-style: none;
+  padding: 0;
+
+  @nest & li {
+    /* display: grid; */
+    justify-self: center;
+  }
+}

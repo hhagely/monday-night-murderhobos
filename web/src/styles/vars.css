@@ -3,7 +3,6 @@
   --color-black: #222;
   --color-white: #fff;
   --color-bg: #e0e8f9;
-  /* --color-accent: #f43; */
   --color-accent: #616e7c;
   --color-header-bg: #19216c;
   --color-header-text: #f5f7fa;
@@ -14,4 +13,9 @@
   --color-tbody-text: #323f4b;
   --color-tbody-sub-text: #7b8794;
   --color-button-primary: #035388;
+  --color-button-tag-default-bg: hsl(227, 42%, 51%);
+  --color-button-tag-default-text: hsl(255, 100%, 100%);
+  --color-button-tag-default-hover: hsl(230, 49%, 41%);
+  --color-button-tag-selected-bg: hsl(162, 63%, 41%);
+  --color-button-tag-selected-hover: hsl(170, 97%, 15%);
 }

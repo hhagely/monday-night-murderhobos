@@ -46,6 +46,10 @@ export default () =>
         .schemaType('bestiary')
         .child(S.documentTypeList('bestiary').title('Beasts')),
       S.listItem()
+        .title('Bestiary Tags')
+        .schemaType('bestiaryTag')
+        .child(S.documentTypeList('bestiaryTag').title('Bestiary Tag')),
+      S.listItem()
         .title('Players')
         .schemaType('person')
         .child(S.documentTypeList('person').title('Players')),
