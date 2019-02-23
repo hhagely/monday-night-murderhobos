@@ -21,7 +21,9 @@ export const query = graphql`
             value
           }
           owner {
-            characterName
+            character {
+              characterName
+            }
             race
             class
             person {

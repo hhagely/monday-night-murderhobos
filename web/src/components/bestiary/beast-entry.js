@@ -20,7 +20,7 @@ const customStyles = {
     background: 'var(--color-tbody-bg)',
     top: '25%',
     left: '25%',
-    transform: 'translate(-15%, -10%)',
+    transform: 'translate(-15%, -11%)',
   },
 };
 

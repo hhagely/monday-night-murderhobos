@@ -22,16 +22,18 @@ export const query = graphql`
       edges {
         node {
           id
-          characterName
+          character {
+            characterName
+            mainImage {
+              alt
+              asset {
+                _id
+              }
+            }
+          }
           class
           race
           active
-          mainImage {
-            alt
-            asset {
-              _id
-            }
-          }
           person {
             name
             id
