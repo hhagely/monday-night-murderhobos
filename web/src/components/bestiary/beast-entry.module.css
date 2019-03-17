@@ -19,6 +19,10 @@
   }
 }
 
+.profileMediaThumb:hover {
+  cursor: pointer;
+}
+
 .headline {
   font: inherit;
   font-weight: 700;
