@@ -60,13 +60,19 @@ function Campaign(props) {
               <div className={styles.sessions}>
                 <h3 className={styles.sessionsHeadline}>Sessions</h3>
                 <ul>
-                  {sessionNodes.map((session) => (
-                    <li key={`session_${session._id}`}>
-                      <Link to={`/session/${session.slug.current}`}>
-                        {session.title}
-                      </Link>
-                    </li>
-                  ))}
+                  {sessionNodes.map(
+                    (session) =>
+                      // if (session.slug && session.slug.current) {
+                      session.slug &&
+                      session.slug.current && (
+                        <li key={`session_${session._id}`}>
+                          <Link to={`/session/${session.slug.current}`}>
+                            {session.title}
+                          </Link>
+                        </li>
+                      )
+                    // }
+                  )}
                 </ul>
               </div>
             )}

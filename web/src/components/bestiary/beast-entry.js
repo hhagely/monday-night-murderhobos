@@ -26,7 +26,7 @@ const customStyles = {
 
 // eslint-disable-next-line react/prop-types
 const BeastEntry = ({ beastInfo }) => {
-  const [openModal, updateOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const {
     name,
@@ -43,7 +43,7 @@ const BeastEntry = ({ beastInfo }) => {
       <div
         className={styles.profileMediaThumb}
         // onClick={openBeastModal(beastInfo}
-        onClick={() => updateOpenModal(true)}
+        onClick={() => setOpenModal(true)}
       >
         {mainImage && mainImage.asset && (
           <img
@@ -58,11 +58,11 @@ const BeastEntry = ({ beastInfo }) => {
       </div>
       <h2 className={styles.headline}>{name}</h2>
       <Modal
-        shouldCloseOnOverlayClick
         shouldCloseOnEsc
         isOpen={openModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel={`${name} Detail`}
+        onRequestClose={() => setOpenModal(false)}
       >
         <div className={styles.modal}>
           <div className={styles.modalContent}>
@@ -127,7 +127,7 @@ const BeastEntry = ({ beastInfo }) => {
             <button
               className={styles.modalCloseButton}
               type="button"
-              onClick={() => updateOpenModal(false)}
+              onClick={() => setOpenModal(false)}
             >
               Close
             </button>

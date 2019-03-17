@@ -7,8 +7,10 @@ import { responsiveTitle2 } from './typography.module.css';
 
 function ProfileCard(partyMemberInfo) {
   const { characterName, race, person } = partyMemberInfo;
-  const { mainImage } = partyMemberInfo;
+  const { mainImage } = partyMemberInfo.character;
   const characterClass = partyMemberInfo.class;
+
+  console.log('info: ', partyMemberInfo);
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileMediaThumb}>
