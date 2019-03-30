@@ -19,7 +19,7 @@ function PartyTreasury({ items }) {
         {items.map((item) => {
           const { id, owner } = item;
           const { itemName, link, value } = item.item;
-          const { characterName, race, person } = owner;
+          const { character, race, person } = owner;
 
           return (
             <tr key={id}>
@@ -34,7 +34,9 @@ function PartyTreasury({ items }) {
                 <div className={styles.charInfo}>{value}</div>
               </th>
               <th>
-                <div className={styles.charInfo}>{`${characterName}`}</div>
+                <div className={styles.charInfo}>{`${
+                  character.characterName
+                }`}</div>
                 <div className={styles.charSubInfo}>{`${race} ${
                   owner.class
                 }`}</div>

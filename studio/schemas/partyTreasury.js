@@ -22,7 +22,7 @@ export default {
   preview: {
     select: {
       itemName: 'item.itemName',
-      ownerName: 'owner.name',
+      ownerName: 'owner.character.characterName',
     },
     prepare(data) {
       return {
