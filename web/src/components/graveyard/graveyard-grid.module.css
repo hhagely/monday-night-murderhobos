@@ -76,12 +76,12 @@
   }
 }
 
-/* .sessions {
+.sessions {
   list-style: none;
   padding-left: 0;
 }
 
-.loot {
+/* .loot {
   width: 100%;
   font-weight: 500;
   margin-top: 8px;

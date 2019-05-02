@@ -15,7 +15,7 @@ export default {
       title: 'Dead/Lost?',
       name: 'dead',
       type: 'boolean',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
   ],
   preview: {

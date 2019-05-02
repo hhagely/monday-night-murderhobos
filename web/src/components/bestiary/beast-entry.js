@@ -85,7 +85,7 @@ const BeastEntry = ({ beastInfo }) => {
               <div className={styles.label}>Sessions Encountered</div>
               <div className={styles.info}>
                 <ul className={styles.sessions}>
-                  {sessions.map((session) => (
+                  {sessions.map(session => (
                     <li key={session.id}>
                       <Link to={`/session/${session.slug.current}`}>
                         {session.title}
@@ -111,7 +111,7 @@ const BeastEntry = ({ beastInfo }) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {loot.map((lootItem) => (
+                      {loot.map(lootItem => (
                         <tr key={lootItem._key}>
                           <th>{lootItem.itemName}</th>
                           <th>{lootItem.value || 'N/A'}</th>

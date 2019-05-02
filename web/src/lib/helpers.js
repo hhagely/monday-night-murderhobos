@@ -6,7 +6,7 @@ export function cn(...args) {
 
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
-  return data.edges.map((edge) => edge.node);
+  return data.edges.map(edge => edge.node);
 }
 
 export function getBlogUrl(publishedAt, slug) {

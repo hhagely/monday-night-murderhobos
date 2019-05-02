@@ -85,7 +85,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
+const IndexPage = props => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 

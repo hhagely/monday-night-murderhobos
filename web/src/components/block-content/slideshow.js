@@ -6,9 +6,9 @@ import styles from './slideshow.module.css';
 
 // eslint-disable-next-line react/prop-types
 function Slideshow({ slides }) {
+  const [index, setIndex] = useState(0);
   if (!slides) return null;
   const len = slides.length;
-  const [index, setIndex] = useState(0);
   function handlePrev() {
     setIndex(Math.max(index - 1, 0));
   }
@@ -33,7 +33,7 @@ function Slideshow({ slides }) {
         data-index={index}
         style={{ transform: `translate3d(${index * -100}%, 0, 0)` }}
       >
-        {slides.map((slide) => (
+        {slides.map(slide => (
           <li key={slide._key} className={styles.slide}>
             {slide.asset && (
               <img

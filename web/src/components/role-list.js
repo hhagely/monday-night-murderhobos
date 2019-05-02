@@ -14,7 +14,7 @@ function RoleList({ items, title }) {
     <div className={styles.root}>
       <h2 className={styles.headline}>{title}</h2>
       <ul className={styles.list}>
-        {items.map((item) => (
+        {items.map(item => (
           <li key={item._key} className={styles.listItem}>
             <div>
               <div className={styles.avatar}>

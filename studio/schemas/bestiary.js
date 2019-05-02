@@ -10,7 +10,7 @@ export default {
       title: 'Name',
       name: 'name',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Image',
@@ -27,7 +27,7 @@ export default {
       name: 'campaign',
       type: 'reference',
       to: { type: 'campaign' },
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Sessions Encountered In',
@@ -39,7 +39,7 @@ export default {
       title: 'Wiki Link',
       name: 'link',
       type: 'url',
-      validation: (Rule) =>
+      validation: Rule =>
         Rule.uri({
           allowRelatvie: false,
           scheme: ['http', 'https'],

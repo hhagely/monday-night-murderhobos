@@ -50,7 +50,7 @@ function Campaign(props) {
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
                 <ul>
-                  {categories.map((category) => (
+                  {categories.map(category => (
                     <li key={category._id}>{category.title}</li>
                   ))}
                 </ul>
@@ -61,7 +61,7 @@ function Campaign(props) {
                 <h3 className={styles.sessionsHeadline}>Sessions</h3>
                 <ul>
                   {sessionNodes.map(
-                    (session) =>
+                    session =>
                       // if (session.slug && session.slug.current) {
                       session.slug &&
                       session.slug.current && (

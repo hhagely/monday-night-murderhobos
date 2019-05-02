@@ -27,7 +27,7 @@ async function createCampaignPages(graphql, actions, reporter) {
 
   const campaignEdges = (result.data.allSanityCampaign || {}).edges || [];
 
-  campaignEdges.forEach((edge) => {
+  campaignEdges.forEach(edge => {
     const { id } = edge.node;
     const slug = edge.node.slug.current;
     const path = `/campaign/${slug}/`;
@@ -65,7 +65,7 @@ async function createSessionPages(graphql, actions, reporter) {
 
   const sessionEdges = (result.data.allSanitySession || {}).edges || [];
 
-  sessionEdges.forEach((edge) => {
+  sessionEdges.forEach(edge => {
     const { id } = edge.node;
     const slug = edge.node.slug.current;
     const path = `/session/${slug}/`;

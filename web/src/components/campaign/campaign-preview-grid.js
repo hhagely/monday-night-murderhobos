@@ -15,7 +15,7 @@ function CampaignPreviewGrid({ title, browseMoreHref, nodes }) {
       )}
       <ul className={styles.grid}>
         {nodes &&
-          nodes.map((node) => (
+          nodes.map(node => (
             <li key={node.id}>
               <CampaignPreview {...node} />
             </li>

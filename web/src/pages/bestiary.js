@@ -28,6 +28,7 @@ export const query = graphql`
           id
           name
           tags {
+            id
             tagName
           }
           _rawDescription

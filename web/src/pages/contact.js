@@ -17,7 +17,7 @@ export const query = graphql`
   }
 `;
 
-const ContactPage = (props) => {
+const ContactPage = props => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 

@@ -37,7 +37,7 @@ function PeopleGrid({ items, title }) {
     <div className={styles.root}>
       {<h2 className={responsiveTitle2}>{title}</h2>}
       <ul className={styles.grid}>
-        {items.map((item) => (
+        {items.map(item => (
           <li key={item.id}>
             <ProfileCard {...item} />
           </li>

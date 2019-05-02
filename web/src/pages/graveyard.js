@@ -5,7 +5,7 @@ import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
-// import GraveyardGrid from '../components/graveyard/graveyard-grid';
+import GraveyardGrid from '../components/graveyard/graveyard-grid';
 
 import { responsiveTitle1 } from '../components/typography.module.css';
 
@@ -15,15 +15,31 @@ export const query = graphql`
       edges {
         node {
           id
-          # character {
-          #   characterName
-          #   mainImage {
-          #     alt
-          #     asset {
-          #       _id
-          #     }
-          #   }
-          # }
+          character {
+            __typename
+            ... on SanityPartyMember {
+              character {
+                characterName
+                mainImage {
+                  alt
+                  asset {
+                    _id
+                  }
+                }
+              }
+            }
+            ... on SanityNpc {
+              character {
+                characterName
+                mainImage {
+                  alt
+                  asset {
+                    _id
+                  }
+                }
+              }
+            }
+          }
           lastSession {
             title
             slug {
@@ -35,7 +51,6 @@ export const query = graphql`
               slug {
                 current
               }
-              _rawSlug
             }
           }
         }
@@ -44,7 +59,7 @@ export const query = graphql`
   }
 `;
 
-const GraveyardPage = (props) => {
+const GraveyardPage = props => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
 
@@ -64,9 +79,9 @@ const GraveyardPage = (props) => {
       <SEO title="Graveyard" />
       <Container>
         <h1 className={responsiveTitle1}>Graveyard</h1>
-        {/* {graveyardNodes && graveyardNodes.length > 0 && (
+        {graveyardNodes && graveyardNodes.length > 0 && (
           <GraveyardGrid items={graveyardNodes} />
-        )} */}
+        )}
       </Container>
     </Layout>
   );

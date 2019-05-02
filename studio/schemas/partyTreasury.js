@@ -16,7 +16,7 @@ export default {
       name: 'owner',
       type: 'reference',
       to: { type: 'partyMember' },
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
   ],
   preview: {

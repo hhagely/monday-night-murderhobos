@@ -76,7 +76,7 @@ export const query = graphql`
   }
 `;
 
-const SessionTemplate = (props) => {
+const SessionTemplate = props => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
   const session = data && data.session;

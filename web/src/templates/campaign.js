@@ -85,7 +85,7 @@ export const query = graphql`
   }
 `;
 
-const CampaignTemplate = (props) => {
+const CampaignTemplate = props => {
   // eslint-disable-next-line react/prop-types
   const { data, errors } = props;
   const campaign = data && data.campaign;

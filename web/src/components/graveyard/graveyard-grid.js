@@ -6,9 +6,10 @@ import { imageUrlFor } from '../../lib/image-url';
 import styles from './graveyard-grid.module.css';
 
 function ProfileCard(characterInfo) {
-  console.log('char: ', characterInfo);
-  const { name, campaign, sessions, link, loot, mainImage } = characterInfo;
-  // console.log('campaign: ', campaign);
+  const { id, character, lastSession } = characterInfo;
+  const { characterName, mainImage } = character.character;
+  const { campaign } = lastSession;
+
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileMediaThumb}>
@@ -23,55 +24,25 @@ function ProfileCard(characterInfo) {
           />
         )}
       </div>
-      <h2 className={styles.headline}>{name}</h2>
-      {campaign && campaign.slug && (
-        
-      )}
+      <h2 className={styles.headline}>
+        {`${characterName} ${
+          character.__typename === 'SanityNpc' ? '(NPC)' : '(Party Member)'
+        }`}
+      </h2>
       <div className={styles.label}>Campaign</div>
       <div className={styles.info}>
         <Link to={`/campaign/${campaign.slug.current}`}>{campaign.title}</Link>
       </div>
-      <div className={styles.label}>Sessions Encountered</div>
+      <div className={styles.label}>Last Session</div>
       <div className={styles.info}>
         <ul className={styles.sessions}>
-          {sessions.map((session) => (
-            <li key={session.id}>
-              <Link to={`/session/${session.slug.current}`}>
-                {session.title}
-              </Link>
-            </li>
-          ))}
+          <li>
+            <Link to={`/session/${lastSession.slug.current}`}>
+              {lastSession.title}
+            </Link>
+          </li>
         </ul>
       </div>
-      {link && (
-        <>
-          <div className={styles.label}>Wiki Link</div>
-          <div className={styles.info}>{link}</div>
-        </>
-      )}
-      {loot && loot.length > 0 && (
-        <>
-          <div className={styles.label}>Loot</div>
-          <div className={styles.info}>
-            <table className={styles.loot}>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {loot.map((lootItem) => (
-                  <tr key={lootItem._key}>
-                    <th>{lootItem.itemName}</th>
-                    <th>{lootItem.value || 'N/A'}</th>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )}
     </div>
   );
 }
@@ -81,7 +52,7 @@ function GraveyardGrid({ items }) {
   return (
     <div className={styles.root}>
       <ul className={styles.grid}>
-        {items.map((character) => (
+        {items.map(character => (
           <li key={character.id}>
             <ProfileCard {...character} />
           </li>

@@ -18,7 +18,7 @@ function SEO({ description, lang, meta, keywords = [], title }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={(data) => {
+      render={data => {
         if (!data.site) {
           return;
         }

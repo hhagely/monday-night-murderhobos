@@ -35,9 +35,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
           <li>
             <Link to="/party-treasury/">Party Treasury</Link>
           </li>
-          {/* <li>
+          <li>
             <Link to="/graveyard/">Graveyard</Link>
-          </li> */}
+          </li>
           <li>
             <Link to="/bestiary/">Bestiary</Link>
           </li>

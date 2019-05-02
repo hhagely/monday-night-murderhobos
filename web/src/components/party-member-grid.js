@@ -10,7 +10,6 @@ function ProfileCard(partyMemberInfo) {
   const { mainImage } = partyMemberInfo.character;
   const characterClass = partyMemberInfo.class;
 
-  console.log('info: ', partyMemberInfo);
   return (
     <div className={styles.profileCard}>
       <div className={styles.profileMediaThumb}>
@@ -42,7 +41,7 @@ function PartyMemberGrid({ partyMembers }) {
     <div className={styles.root}>
       {<h2 className={responsiveTitle2}>Party Members</h2>}
       <ul className={styles.grid}>
-        {partyMembers.map((partyMember) => (
+        {partyMembers.map(partyMember => (
           <li key={partyMember.id}>
             <ProfileCard {...partyMember} />
           </li>

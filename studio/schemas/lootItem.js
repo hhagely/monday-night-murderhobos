@@ -7,13 +7,13 @@ export default {
       title: 'Item Name',
       name: 'itemName',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Wiki Link',
       name: 'link',
       type: 'url',
-      validation: (Rule) =>
+      validation: Rule =>
         Rule.uri({
           allowRelative: false,
           scheme: ['https', 'http'],

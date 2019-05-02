@@ -8,7 +8,7 @@ function BestiaryGrid({ items }) {
   return (
     <div className={styles.root}>
       <ul className={styles.grid}>
-        {items.map((beast) => (
+        {items.map(beast => (
           <li key={beast.id}>
             <BeastEntry beastInfo={beast} />
           </li>
