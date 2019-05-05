@@ -1,7 +1,7 @@
 @import '../../styles/media-queries.css';
 @import '../../styles/vars.css';
 
-div.tableContainer {
+.tableContainer {
   overflow-x: auto;
 }
 
