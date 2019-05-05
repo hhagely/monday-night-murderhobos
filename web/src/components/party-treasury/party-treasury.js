@@ -5,7 +5,7 @@ import styles from './party-treasury.module.css';
 
 function PartyTreasury({ items }) {
   return (
-    <div className="tableContainer">
+    <div className={styles.tableContainer}>
       <table className={styles.treasuryTable}>
         <thead>
           <tr>
