@@ -1,6 +1,10 @@
 @import '../../styles/media-queries.css';
 @import '../../styles/vars.css';
 
+div.tableContainer {
+  overflow-x: auto;
+}
+
 table.treasuryTable {
   width: 100%;
   border-spacing: 0px;
