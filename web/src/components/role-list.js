@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
 
@@ -8,7 +9,6 @@ function ucfirst(str) {
   return `${str.substr(0, 1).toUpperCase()}${str.substr(1)}`;
 }
 
-// eslint-disable-next-line react/prop-types
 function RoleList({ items, title }) {
   return (
     <div className={styles.root}>
@@ -57,5 +57,10 @@ function RoleList({ items, title }) {
     </div>
   );
 }
+
+RoleList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default RoleList;

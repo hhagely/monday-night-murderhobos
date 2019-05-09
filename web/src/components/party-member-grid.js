@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
 
@@ -19,7 +20,7 @@ function ProfileCard(partyMemberInfo) {
             src={imageUrlFor(buildImageObj(mainImage))
               .width(600)
               .height(600)
-              .fit('crop')
+              .fit('scale')
               .url()}
           />
         )}
@@ -35,7 +36,6 @@ function ProfileCard(partyMemberInfo) {
   );
 }
 
-// eslint-disable-next-line react/prop-types
 function PartyMemberGrid({ partyMembers }) {
   return (
     <div className={styles.root}>
@@ -50,5 +50,9 @@ function PartyMemberGrid({ partyMembers }) {
     </div>
   );
 }
+
+PartyMemberGrid.propTypes = {
+  partyMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default PartyMemberGrid;

@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import PropTypes from 'prop-types';
 import SessionPreview from './session-preview';
 
 import styles from './session-preview-grid.module.css';
 
-// eslint-disable-next-line react/prop-types
 function SessionPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
@@ -15,7 +15,7 @@ function SessionPreviewGrid({ title, browseMoreHref, nodes }) {
       )}
       <ul className={styles.grid}>
         {nodes &&
-          nodes.map((node) => (
+          nodes.map(node => (
             <li key={node.id}>
               <SessionPreview {...node} />
             </li>
@@ -30,10 +30,10 @@ function SessionPreviewGrid({ title, browseMoreHref, nodes }) {
   );
 }
 
-SessionPreviewGrid.defaultProps = {
-  title: '',
-  nodes: [],
-  browseMoreHref: '',
+SessionPreviewGrid.propTypes = {
+  title: PropTypes.string,
+  browseMoreHref: PropTypes.string,
+  nodes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default SessionPreviewGrid;

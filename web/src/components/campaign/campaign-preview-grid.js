@@ -1,10 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import PropTypes from 'prop-types';
 import CampaignPreview from './campaign-preview';
 
 import styles from './campaign-preview-grid.module.css';
 
-// eslint-disable-next-line react/prop-types
 function CampaignPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
@@ -34,6 +34,12 @@ CampaignPreviewGrid.defaultProps = {
   title: '',
   nodes: [],
   browseMoreHref: '',
+};
+
+CampaignPreviewGrid.propTypes = {
+  title: PropTypes.string,
+  browseMoreHref: PropTypes.string,
+  nodes: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default CampaignPreviewGrid;

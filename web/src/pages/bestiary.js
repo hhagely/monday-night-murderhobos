@@ -1,7 +1,6 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import { mapEdgesToNodes } from '../lib/helpers';
 import Container from '../components/container';
 import GraphQLErrorList from '../components/graphql-error-list';
@@ -51,9 +50,6 @@ export const query = graphql`
             }
             alt
             asset {
-              # fixed(width: 197) {
-              #   ...GatsbySanityImageFixed
-              # }
               fluid(maxWidth: 600) {
                 ...GatsbySanityImageFluid
               }
@@ -78,7 +74,6 @@ export const query = graphql`
           loot {
             _key
             itemName
-            link
             value
           }
         }
@@ -91,10 +86,10 @@ function filterBestiaryByTag(bestiary, tags) {
   if (tags.length === 0) return bestiary;
 
   // eslint-disable-next-line array-callback-return
-  const beasts = bestiary.filter((beast) => {
+  const beasts = bestiary.filter(beast => {
     if (beast.tags) {
-      const beastTags = beast.tags.map((tag) => tag.tagName);
-      if (tags.every((t) => beastTags.includes(t))) return beast;
+      const beastTags = beast.tags.map(tag => tag.tagName);
+      if (tags.every(t => beastTags.includes(t))) return beast;
     }
   });
 
@@ -106,11 +101,11 @@ function updateTags(selectedTags, newTag) {
 
   // ? Remove if it's already in the list, add it otherwise.
   return tagsCopy.includes(newTag)
-    ? tagsCopy.filter((tag) => tag !== newTag)
+    ? tagsCopy.filter(tag => tag !== newTag)
     : [...tagsCopy, newTag];
 }
 
-const BestiaryPage = (props) => {
+const BestiaryPage = props => {
   const { data, errors } = props;
 
   const bestiaryNodes = data && data.bestiary && mapEdgesToNodes(data.bestiary);
@@ -133,9 +128,8 @@ const BestiaryPage = (props) => {
       <Container>
         <h1 className={responsiveTitle1}>Bestiary</h1>
         {bestiaryTagNodes && bestiaryTagNodes.length > 0 && (
-          // <div>
           <ul className={styles.tagGrid}>
-            {bestiaryTagNodes.map((tag) => (
+            {bestiaryTagNodes.map(tag => (
               <li key={tag.id}>
                 <button
                   type="button"
@@ -167,12 +161,88 @@ const BestiaryPage = (props) => {
               </button>
             </li>
           </ul>
-          // </div>
         )}
         {bestiary && bestiary.length > 0 && <BestiaryGrid items={bestiary} />}
       </Container>
     </Layout>
   );
+};
+
+BestiaryPage.propTypes = {
+  data: PropTypes.shape({
+    tags: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            tagName: PropTypes.string.isRequired,
+          }),
+        })
+      ),
+    }),
+    bestiary: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string,
+            tags: PropTypes.arrayOf(
+              PropTypes.shape({
+                id: PropTypes.string,
+                tagName: PropTypes.string,
+              })
+            ),
+            _rawDescription: PropTypes.array,
+            mainImage: PropTypes.shape({
+              crop: PropTypes.shape({
+                _key: PropTypes.string,
+                _type: PropTypes.string,
+                top: PropTypes.number,
+                bottom: PropTypes.number,
+                left: PropTypes.number,
+                right: PropTypes.number,
+              }),
+              hotspot: PropTypes.shape({
+                _key: PropTypes.string,
+                _type: PropTypes.string,
+                x: PropTypes.number,
+                y: PropTypes.number,
+                height: PropTypes.number,
+                width: PropTypes.number,
+              }),
+              alt: PropTypes.string,
+              asset: PropTypes.object,
+            }),
+            link: PropTypes.string,
+            campaign: PropTypes.shape({
+              id: PropTypes.string,
+              title: PropTypes.string,
+              slug: PropTypes.shape({
+                current: PropTypes.string,
+              }),
+            }),
+            sessions: PropTypes.arrayOf(
+              PropTypes.shape({
+                id: PropTypes.string,
+                title: PropTypes.string,
+                slug: PropTypes.shape({
+                  current: PropTypes.string,
+                }),
+              })
+            ),
+            loot: PropTypes.arrayOf(
+              PropTypes.shape({
+                _key: PropTypes.string,
+                itemName: PropTypes.string,
+                value: PropTypes.string,
+              })
+            ),
+          }),
+        })
+      ),
+    }),
+  }),
+  errors: PropTypes.array,
 };
 
 export default BestiaryPage;

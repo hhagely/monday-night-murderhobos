@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from './icons';
 import { cn } from '../lib/helpers';
 
 import styles from './header.module.css';
 
-// eslint-disable-next-line react/prop-types
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
@@ -55,5 +55,12 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
     </div>
   </div>
 );
+
+Header.propTypes = {
+  onShowNav: PropTypes.func.isRequired,
+  onHideNav: PropTypes.func.isRequired,
+  showNav: PropTypes.bool.isRequired,
+  siteTitle: PropTypes.string.isRequired,
+};
 
 export default Header;

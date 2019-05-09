@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BeastEntry from './beast-entry';
 
 import styles from './bestiary-grid.module.css';
 
-// eslint-disable-next-line react/prop-types
 function BestiaryGrid({ items }) {
   return (
     <div className={styles.root}>
@@ -17,5 +17,9 @@ function BestiaryGrid({ items }) {
     </div>
   );
 }
+
+BestiaryGrid.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default BestiaryGrid;

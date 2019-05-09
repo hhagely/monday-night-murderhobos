@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockContent from '../block-content';
@@ -59,5 +59,15 @@ function Session(props) {
     </article>
   );
 }
+// const { _rawBody, authors, campaign, title, mainImage, publishedAt } = props;
+
+Session.propTypes = {
+  _rawBody: PropTypes.array,
+  authors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  campaign: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  mainImage: PropTypes.object.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+};
 
 export default Session;

@@ -25,6 +25,22 @@ export const query = graphql`
           character {
             characterName
             mainImage {
+              crop {
+                _key
+                _type
+                top
+                bottom
+                left
+                right
+              }
+              hotspot {
+                _key
+                _type
+                x
+                y
+                height
+                width
+              }
               alt
               asset {
                 _id

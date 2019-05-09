@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from './header';
-
 import '../styles/layout.css';
 import styles from './layout.module.css';
 
-// eslint-disable-next-line react/prop-types
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header
@@ -26,5 +25,16 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     </footer>
   </>
 );
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
+  onHideNav: PropTypes.func.isRequired,
+  onShowNav: PropTypes.func.isRequired,
+  showNav: PropTypes.bool.isRequired,
+  siteTitle: PropTypes.string.isRequired,
+};
 
 export default Layout;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 
 import styles from './graveyard-grid.module.css';
 
 function ProfileCard(characterInfo) {
-  const { id, character, lastSession } = characterInfo;
+  const { character, lastSession } = characterInfo;
   const { characterName, mainImage } = character.character;
   const { campaign } = lastSession;
 
@@ -47,7 +48,6 @@ function ProfileCard(characterInfo) {
   );
 }
 
-// eslint-disable-next-line react/prop-types
 function GraveyardGrid({ items }) {
   return (
     <div className={styles.root}>
@@ -61,5 +61,15 @@ function GraveyardGrid({ items }) {
     </div>
   );
 }
+
+GraveyardGrid.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      character: PropTypes.object,
+      lastSession: PropTypes.object,
+    })
+  ),
+};
 
 export default GraveyardGrid;

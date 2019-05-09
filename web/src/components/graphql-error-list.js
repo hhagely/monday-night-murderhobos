@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 const GraphQLErrorList = ({ errors }) => (
   <div>
     <h1>GraphQL Error</h1>
@@ -9,5 +9,9 @@ const GraphQLErrorList = ({ errors }) => (
     ))}
   </div>
 );
+
+GraphQLErrorList.propTypes = {
+  errors: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default GraphQLErrorList;

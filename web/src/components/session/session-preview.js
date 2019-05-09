@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import { Link } from 'gatsby';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buildImageObj, cn, getSessionUrl } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockText from '../block-text';
@@ -36,5 +36,13 @@ function SessionPreview({ publishedAt, mainImage, slug, title, _rawExcerpt }) {
     </>
   );
 }
+
+SessionPreview.propTypes = {
+  publishedAt: PropTypes.string.isRequired,
+  mainImage: PropTypes.object,
+  slug: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  _rawExcerpt: PropTypes.array,
+};
 
 export default SessionPreview;

@@ -1,4 +1,4 @@
-const { format } = require('date-fns');
+// const { format } = require('date-fns');
 
 /**
  * Implement Gatsby's Node APIs in this file.

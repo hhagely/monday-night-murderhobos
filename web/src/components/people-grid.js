@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import BlockText from './block-text';
 import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
@@ -46,5 +46,22 @@ function PeopleGrid({ items, title }) {
     </div>
   );
 }
+
+ProfileCard.propTypes = {
+  image: PropTypes.object,
+  name: PropTypes.string.isRequired,
+  _rawBio: PropTypes.string,
+};
+
+PeopleGrid.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.object,
+      name: PropTypes.string.isRequired,
+      _rawBio: PropTypes.string,
+    })
+  ),
+  title: PropTypes.string.isRequired,
+};
 
 export default PeopleGrid;

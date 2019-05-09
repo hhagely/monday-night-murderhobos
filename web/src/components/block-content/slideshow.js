@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 
 import styles from './slideshow.module.css';
 
-// eslint-disable-next-line react/prop-types
 function Slideshow({ slides }) {
   const [index, setIndex] = useState(0);
   if (!slides) return null;
@@ -51,5 +51,9 @@ function Slideshow({ slides }) {
     </div>
   );
 }
+
+Slideshow.propTypes = {
+  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Slideshow;

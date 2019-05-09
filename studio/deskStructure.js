@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import S from '@sanity/desk-tool/structure-builder';
 import { MdSettings } from 'react-icons/md';
 import { IoIosPaper } from 'react-icons/io';

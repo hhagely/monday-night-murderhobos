@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './party-treasury.module.css';
 
@@ -16,7 +16,7 @@ function PartyTreasury({ items }) {
           </tr>
         </thead>
         <tbody>
-          {items.map((item) => {
+          {items.map(item => {
             const { id, owner } = item;
             const { itemName, link, value } = item.item;
             const { character, race, person } = owner;
@@ -52,5 +52,9 @@ function PartyTreasury({ items }) {
     </div>
   );
 }
+
+PartyTreasury.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default PartyTreasury;

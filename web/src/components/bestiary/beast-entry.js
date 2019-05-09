@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
@@ -24,7 +23,17 @@ const customStyles = {
   },
 };
 
-// eslint-disable-next-line react/prop-types
+const handleKeyPress = (e, setModal) => {
+  switch (e.which) {
+    case 13:
+    case 32:
+      setModal(true);
+      break;
+    default:
+      break;
+  }
+};
+
 const BeastEntry = ({ beastInfo }) => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -42,8 +51,10 @@ const BeastEntry = ({ beastInfo }) => {
     <div className={styles.profileCard}>
       <div
         className={styles.profileMediaThumb}
-        // onClick={openBeastModal(beastInfo}
+        role="link"
         onClick={() => setOpenModal(true)}
+        tabIndex={0}
+        onKeyPress={e => handleKeyPress(e, setOpenModal)}
       >
         {mainImage && mainImage.asset && (
           <img
@@ -51,7 +62,7 @@ const BeastEntry = ({ beastInfo }) => {
             src={imageUrlFor(buildImageObj(mainImage))
               .width(600)
               .height(600)
-              .fit('scale')
+              .fit('crop')
               .url()}
           />
         )}
@@ -136,6 +147,18 @@ const BeastEntry = ({ beastInfo }) => {
       </Modal>
     </div>
   );
+};
+
+BeastEntry.propTypes = {
+  beastInfo: PropTypes.shape({
+    name: PropTypes.string,
+    campaign: PropTypes.object,
+    sessions: PropTypes.arrayOf(PropTypes.object),
+    link: PropTypes.string,
+    loot: PropTypes.arrayOf(PropTypes.object),
+    mainImage: PropTypes.object,
+    _rawDescription: PropTypes.array,
+  }).isRequired,
 };
 
 export default BeastEntry;

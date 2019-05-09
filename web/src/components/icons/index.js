@@ -1,13 +1,18 @@
-import React from 'react'
-import HamburgerIcon from './hamburger'
+import React from 'react';
+import PropTypes from 'prop-types';
+import HamburgerIcon from './hamburger';
 
-function Icon (props) {
+function Icon(props) {
   switch (props.symbol) {
     case 'hamburger':
-      return <HamburgerIcon />
+      return <HamburgerIcon />;
     default:
-      return <span>Unknown icon: {props.symbol}</span>
+      return <span>Unknown icon: {props.symbol}</span>;
   }
 }
 
-export default Icon
+Icon.propTypes = {
+  symbol: PropTypes.string,
+};
+
+export default Icon;

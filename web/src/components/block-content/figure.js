@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 
 import styles from './figure.module.css';
 
 function Figure(props) {
-  // eslint-disable-next-line react/prop-types
   const { asset, alt, caption } = props;
   return (
     <figure className={styles.root}>
@@ -21,5 +21,11 @@ function Figure(props) {
     </figure>
   );
 }
+
+Figure.propTypes = {
+  asset: PropTypes.object,
+  alt: PropTypes.string,
+  caption: PropTypes.string,
+};
 
 export default Figure;

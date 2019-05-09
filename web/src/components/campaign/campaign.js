@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { format, distanceInWords, differenceInDays } from 'date-fns';
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import { buildImageObj } from '../../lib/helpers';
 import { imageUrlFor } from '../../lib/image-url';
 import BlockContent from '../block-content';
@@ -18,6 +18,7 @@ function Campaign(props) {
     publishedAt,
     sessionNodes,
   } = props;
+
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -62,16 +63,14 @@ function Campaign(props) {
                 <ul>
                   {sessionNodes.map(
                     session =>
-                      // if (session.slug && session.slug.current) {
                       session.slug &&
                       session.slug.current && (
-                        <li key={`session_${session._id}`}>
+                        <li key={`session_${session.id}`}>
                           <Link to={`/session/${session.slug.current}`}>
                             {session.title}
                           </Link>
                         </li>
                       )
-                    // }
                   )}
                 </ul>
               </div>
@@ -82,5 +81,14 @@ function Campaign(props) {
     </article>
   );
 }
+
+Campaign.propTypes = {
+  _rawBody: PropTypes.array,
+  title: PropTypes.string,
+  categories: PropTypes.arrayOf(PropTypes.object),
+  mainImage: PropTypes.object,
+  publishedAt: PropTypes.string,
+  sessionNodes: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default Campaign;
