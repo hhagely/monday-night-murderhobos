@@ -26,9 +26,7 @@ function ProfileCard(characterInfo) {
         )}
       </div>
       <h2 className={styles.headline}>
-        {`${characterName} ${
-          character.__typename === 'SanityNpc' ? '(NPC)' : '(Party Member)'
-        }`}
+        {`${characterName} ${character.__typename === 'SanityNpc' ? '(NPC)' : '(Party Member)'}`}
       </h2>
       <div className={styles.label}>Campaign</div>
       <div className={styles.info}>
@@ -38,9 +36,7 @@ function ProfileCard(characterInfo) {
       <div className={styles.info}>
         <ul className={styles.sessions}>
           <li>
-            <Link to={`/session/${lastSession.slug.current}`}>
-              {lastSession.title}
-            </Link>
+            <Link to={`/session/${lastSession.slug.current}`}>{lastSession.title}</Link>
           </li>
         </ul>
       </div>

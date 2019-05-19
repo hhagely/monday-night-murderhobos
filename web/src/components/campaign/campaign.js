@@ -10,14 +10,7 @@ import Container from '../container';
 import styles from './campaign.module.css';
 
 function Campaign(props) {
-  const {
-    _rawBody,
-    title,
-    categories,
-    mainImage,
-    publishedAt,
-    sessionNodes,
-  } = props;
+  const { _rawBody, title, categories, mainImage, publishedAt, sessionNodes } = props;
 
   return (
     <article className={styles.root}>
@@ -66,9 +59,7 @@ function Campaign(props) {
                       session.slug &&
                       session.slug.current && (
                         <li key={`session_${session.id}`}>
-                          <Link to={`/session/${session.slug.current}`}>
-                            {session.title}
-                          </Link>
+                          <Link to={`/session/${session.slug.current}`}>{session.title}</Link>
                         </li>
                       )
                   )}

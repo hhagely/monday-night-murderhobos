@@ -9,9 +9,7 @@ function CampaignPreviewGrid({ title, browseMoreHref, nodes }) {
   return (
     <div className={styles.root}>
       {title && (
-        <h2 className={styles.headline}>
-          {browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}
-        </h2>
+        <h2 className={styles.headline}>{browseMoreHref ? <Link to={browseMoreHref}>{title}</Link> : title}</h2>
       )}
       <ul className={styles.grid}>
         {nodes &&

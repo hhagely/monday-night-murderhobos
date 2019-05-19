@@ -12,9 +12,7 @@ function CampaignPreview({ slug, mainImage, title, _rawExcerpt }) {
   return (
     <Link className={styles.root} to={`/campaign/${slug.current}`}>
       <div className={styles.leadMediaThumb}>
-        {mainImage && mainImage.asset && (
-          <Img fluid={mainImage.asset.fluid} alt={mainImage.alt} />
-        )}
+        {mainImage && mainImage.asset && <Img fluid={mainImage.asset.fluid} alt={mainImage.alt} />}
       </div>
       <h3 className={cn(responsiveTitle3, styles.title)}>{title}</h3>
       {_rawExcerpt && (
