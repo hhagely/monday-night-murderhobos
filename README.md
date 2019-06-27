@@ -1,4 +1,4 @@
-# This is a [Gatsby](https://www.gatsbyjs.org) site powered by a [Sanity.io](https://www.sanithy.io) backend.
+# This is a [Gatsby](https://www.gatsbyjs.org) site powered by a [Sanity.io](https://www.sanity.io) backend.
 
 This is a website for my monday night DnD group, the Monday Night Murderhobos. I wanted to create a hub for everything that happens in our sessions so we have
 a log that's easy to reference and read.
